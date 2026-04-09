@@ -1,0 +1,4 @@
+ttf-font-awesome-4
+visual-studio-code-bin
+yay
+yay-debug
