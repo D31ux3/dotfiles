@@ -10,9 +10,9 @@ if ! command -v yay &> /dev/null; then
     rm -rf ./yay
 fi
 
-sudo pacman -S --needed --noconfirm - < pkglist.txt
+cat pkglist.txt | xargs -n 1 sudo pacman -S --needed --noconfirm
 yay -S --needed -noconfirm - < aurlist.txt
 
-cp -r ~/dotfiles/* ~/
+cp -r ~/dotfiles/Configs/. ~/
 
 echo "rebootea y seguro se rompe todo un saludo"
