@@ -10,9 +10,16 @@ if ! command -v yay &> /dev/null; then
     rm -rf ./yay
 fi
 
-cat pkglist.txt | xargs -n 1 sudo pacman -S --needed --noconfirm
-yay -S --needed -noconfirm - < aurlist.txt
+while read pkg; do
+    sudo pacman -S --needed --noconfirm "$pkg" || echo "Failed to install: $pkg"
+done < pkglist.txt
+
+while read pkg; do
+    yay -S --needed --noconfirm "$pkg" || echo "Failed to install: $pkg"
+done < aurlist.txt
 
 cp -r ~/dotfiles/Configs/. ~/
+
+sudo systemctl enable sddm
 
 echo "rebootea y seguro se rompe todo un saludo"
