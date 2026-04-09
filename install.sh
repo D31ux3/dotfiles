@@ -20,6 +20,9 @@ done < aurlist.txt
 
 cp -r ~/dotfiles/Configs/. ~/
 
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+
+
 cp -r ~/dotfiles/Assets/Pictures/. ~/Pictures
 
 sudo systemctl enable gdm
