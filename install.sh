@@ -22,6 +22,6 @@ cp -r ~/dotfiles/Configs/. ~/
 
 cp -r ~/dotfiles/Assets/Pictures/. ~/Pictures
 
-sudo systemctl enable sddm
+sudo systemctl enable gdm
 
 echo "rebootea y seguro se rompe todo un saludo"
