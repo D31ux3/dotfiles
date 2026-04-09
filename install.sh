@@ -20,6 +20,8 @@ done < aurlist.txt
 
 cp -r ~/dotfiles/Configs/. ~/
 
+cp -r ~/dotfiles/Assets/Pictures/. ~/Pictures
+
 sudo systemctl enable sddm
 
 echo "rebootea y seguro se rompe todo un saludo"
