@@ -42,6 +42,7 @@ cp -r ~/dotfiles/Configs/. ~/
 cp -r ~/dotfiles/Assets/Pictures/. ~/Pictures
 
 # Set Wallpaper
+awww-daemon
 awww img ~/Pictures/Wallpapers/Lucy-rain.png
 
 # Enable GUI login
