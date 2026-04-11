@@ -32,7 +32,7 @@ while read pkg; do
 done < aurlist.txt
 
 # Install OHMYZSH (zsh is installed with official packages)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 
 # Copy configuration files
 cp -r ~/dotfiles/Configs/. ~/
