@@ -65,3 +65,4 @@ yay
 yay-debug
 zram-generator
 zsh
+starship
