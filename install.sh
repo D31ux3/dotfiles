@@ -41,6 +41,9 @@ cp -r ~/dotfiles/Configs/. ~/
 # Copy Wallpapers
 cp -r ~/dotfiles/Assets/Pictures/. ~/Pictures
 
+# Set Wallpaper
+awww img ~/Pictures/Wallpapers/Lucy-rain.png
+
 # Enable GUI login
 sudo systemctl enable gdm
 
