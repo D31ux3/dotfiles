@@ -44,12 +44,8 @@ if [ ! -d ~/.oh-my-zsh ]; then
     git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 fi
 
-# Copy configuration files
-cp -r "$DOTFILES/Configs/." ~/
-
-# Copy Wallpapers (se ponen al iniciar Hyprland, ver ~/.config/hypr/scripts/wallpaper.sh)
-mkdir -p ~/Pictures
-cp -r "$DOTFILES/Assets/Pictures/." ~/Pictures
+# Link configuration files and wallpapers (symlinks, ver link.sh)
+"$DOTFILES/link.sh"
 
 # Enable GUI login
 sudo systemctl enable gdm
