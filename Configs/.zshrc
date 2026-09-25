@@ -102,9 +102,26 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias lsa="exa -la"
-alias lsl="exa -l" 
+alias ls="exa --icons --group-directories-first"
+alias la="exa -la --icons --git --group-directories-first"
+alias ll="exa -l --icons --git --group-directories-first" 
+alias lt="exa --tree --level=2 --icons"
+
 alias ff="fastfetch"
+
+# Stage everything, commit with the given message and push: gacp "message"
+gacp() {
+    if [[ -z "$*" ]]; then
+        echo "usage: gacp <message>"
+        return 1
+    fi
+    git add . && git commit -m "$*" && git push
+}
+
+alias orphans="pacman -Qtdq | sudo pacman -Rns -"
+
+alias dots="cd ~/dotfiles"
+alias reload="source ~/.zshrc"
 
 # Starship initialization
 eval "$(starship init zsh)"
