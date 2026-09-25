@@ -28,13 +28,13 @@ if ! command -v yay &> /dev/null; then
 fi
 
 # Install official packages
-while read -r pkg; do
+while read -r pkg || [ -n "$pkg" ]; do
     [ -z "$pkg" ] && continue
     sudo pacman -S --needed --noconfirm "$pkg" || echo "Failed to install: $pkg"
 done < "$DOTFILES/pkglist.txt"
 
 # Install AUR packages
-while read -r pkg; do
+while read -r pkg || [ -n "$pkg" ]; do
     [ -z "$pkg" ] && continue
     yay -S --needed --noconfirm "$pkg" || echo "Failed to install: $pkg"
 done < "$DOTFILES/aurlist.txt"
