@@ -82,11 +82,11 @@
     },
 
     "custom/battery": {
-        "exec": "echo '{\"text\": \"85% \", \"tooltip\": \"Batería simulada en VM\\n85% - Cargando\", \"class\": \"battery\", \"percentage\": 85}'",
+        "exec": "echo '{\"text\": \"85% \", \"tooltip\": \"Simulated battery in VM\\n85% - Charging\", \"class\": \"battery\", \"percentage\": 85}'",
         "return-type": "json",
         "interval": 30,                  // updates every 30 seconds (can be lowered)
         "format": "{}",
-        "on-click": "notify-send 'Batería simulada' 'Esto es solo para testing en VM'"
+        "on-click": "notify-send 'Simulated battery' 'This is only for testing in a VM'"
     },
 
     "custom/notification": {

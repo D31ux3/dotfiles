@@ -50,4 +50,4 @@ fi
 # Enable GUI login
 sudo systemctl enable gdm
 
-echo "rebootea y seguro se rompe todo un saludo"
+echo "reboot your system"
