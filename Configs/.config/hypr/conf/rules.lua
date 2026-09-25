@@ -2,7 +2,7 @@
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
 hl.window_rule({
-    -- Ignorar pedidos de maximizar de todas las apps
+    -- Ignore maximize requests from all apps
     name  = "suppress-maximize-events",
     match = { class = ".*" },
 
@@ -10,7 +10,7 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    -- Arregla problemas al arrastrar ventanas de XWayland
+    -- Fix dragging issues with XWayland windows
     name  = "fix-xwayland-drags",
     match = {
         class      = "^$",

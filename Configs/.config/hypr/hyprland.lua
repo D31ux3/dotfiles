@@ -1,5 +1,5 @@
 -- Hyprland config (Lua). Wiki: https://wiki.hypr.land/Configuring/Start/
--- Cada sección vive en su propio archivo dentro de conf/
+-- Each section lives in its own file inside conf/
 
 require("conf.vars")
 require("conf.monitors")

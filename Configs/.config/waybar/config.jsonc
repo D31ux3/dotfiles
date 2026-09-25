@@ -84,7 +84,7 @@
     "custom/battery": {
         "exec": "echo '{\"text\": \"85% \", \"tooltip\": \"Batería simulada en VM\\n85% - Cargando\", \"class\": \"battery\", \"percentage\": 85}'",
         "return-type": "json",
-        "interval": 30,                  // cada 30 segundos actualiza (puedes bajarlo)
+        "interval": 30,                  // updates every 30 seconds (can be lowered)
         "format": "{}",
         "on-click": "notify-send 'Batería simulada' 'Esto es solo para testing en VM'"
     },

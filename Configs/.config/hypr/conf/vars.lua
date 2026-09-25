@@ -1,4 +1,4 @@
--- Programas y variables compartidas entre módulos
+-- Programs and variables shared across modules
 
 local vars = {
     terminal    = "kitty",

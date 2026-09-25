@@ -11,7 +11,7 @@ window#waybar {
     background: transparent;
 }
 
-/* módulos base */
+/* base modules */
 #clock,
 #workspaces,
 #tray,
@@ -25,7 +25,7 @@ window#waybar {
     margin: 0 6px;
 }
 
-/* hover sutil */
+/* subtle hover */
 #clock:hover,
 #pulseaudio:hover,
 #network:hover,
@@ -51,7 +51,7 @@ window#waybar {
     color: @text;
 }
 
-/* clock destacado */
+/* highlighted clock */
 #clock {
     font-weight: bold;
     color: @accent;
@@ -67,7 +67,7 @@ window#waybar {
     color: @critical;
 }
 
-/* batería */
+/* battery */
 #battery,
 #custom-battery {
     color: @good;
@@ -81,7 +81,7 @@ window#waybar {
     color: @critical;
 }
 
-/* notificaciones */
+/* notifications */
 #custom-notification {
     font-size: 16px;
 }

@@ -9,7 +9,7 @@ echo "
 
 "
 
-# Carpeta donde está este script, para que funcione desde cualquier lugar
+# Directory containing this script, so it works from anywhere
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Enable multilib (needed for steam)
@@ -44,7 +44,7 @@ if [ ! -d ~/.oh-my-zsh ]; then
     git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 fi
 
-# Link configuration files and wallpapers (symlinks, ver link.sh)
+# Link configuration files and wallpapers (symlinks, see link.sh)
 "$DOTFILES/link.sh"
 
 # Enable GUI login
