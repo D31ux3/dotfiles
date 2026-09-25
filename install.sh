@@ -1,49 +1,55 @@
 #!/bin/bash
 
 echo "
-    ____                      ___              __       __    __          
+    ____                      ___              __       __    __
    /  _/  __  __________     /   |  __________/ /_     / /_  / /__      __
    / /   / / / / ___/ _ \   / /| | / ___/ ___/ __ \   / __ \/ __/ | /| / /
- _/ /   / /_/ (__  )  __/  / ___ |/ /  / /__/ / / /  / /_/ / /_ | |/ |/ / 
-/___/   \__,_/____/\___/  /_/  |_/_/   \___/_/ /_/  /_.___/\__/ |__/|__/  
-                                                                          
+ _/ /   / /_/ (__  )  __/  / ___ |/ /  / /__/ / / /  / /_/ / /_ | |/ |/ /
+/___/   \__,_/____/\___/  /_/  |_/_/   \___/_/ /_/  /_.___/\__/ |__/|__/
+
 "
+
+# Carpeta donde está este script, para que funcione desde cualquier lugar
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Enable multilib (needed for steam)
+if ! grep -q "^\[multilib\]" /etc/pacman.conf; then
+    sudo sed -i '/^#\[multilib\]/,/^#Include/ s/^#//' /etc/pacman.conf
+fi
 
 # Update system
 sudo pacman -Syu --noconfirm
 
 # Install YAY (AUR helper)
 if ! command -v yay &> /dev/null; then
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si --noconfirm
-    cd ..
-    rm -rf ./yay
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    (cd /tmp/yay && makepkg -si --noconfirm)
+    rm -rf /tmp/yay
 fi
 
-# Install official packages 
-while read pkg; do
+# Install official packages
+while read -r pkg; do
+    [ -z "$pkg" ] && continue
     sudo pacman -S --needed --noconfirm "$pkg" || echo "Failed to install: $pkg"
-done < pkglist.txt
+done < "$DOTFILES/pkglist.txt"
 
 # Install AUR packages
-while read pkg; do
+while read -r pkg; do
+    [ -z "$pkg" ] && continue
     yay -S --needed --noconfirm "$pkg" || echo "Failed to install: $pkg"
-done < aurlist.txt
+done < "$DOTFILES/aurlist.txt"
 
 # Install OHMYZSH (zsh is installed with official packages)
-git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+if [ ! -d ~/.oh-my-zsh ]; then
+    git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+fi
 
 # Copy configuration files
-cp -r ~/dotfiles/Configs/. ~/
+cp -r "$DOTFILES/Configs/." ~/
 
-
-# Copy Wallpapers
-cp -r ~/dotfiles/Assets/Pictures/. ~/Pictures
-
-# Set Wallpaper
-awww-daemon
-awww img ~/Pictures/Wallpapers/Lucy-rain.png
+# Copy Wallpapers (se ponen al iniciar Hyprland, ver ~/.config/hypr/scripts/wallpaper.sh)
+mkdir -p ~/Pictures
+cp -r "$DOTFILES/Assets/Pictures/." ~/Pictures
 
 # Enable GUI login
 sudo systemctl enable gdm
