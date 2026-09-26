@@ -24,6 +24,8 @@ network-manager-applet
 nwg-look
 otf-font-awesome
 pavucontrol
+qt6ct
+breeze
 polkit-kde-agent
 qt5-wayland
 qt6-wayland
