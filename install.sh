@@ -45,7 +45,7 @@ if [ ! -d ~/.oh-my-zsh ]; then
 fi
 
 # Link configuration files and wallpapers (symlinks, see link.sh)
-"$DOTFILES/link.sh"
+"$DOTFILES/Scripts/link.sh"
 
 # Enable GUI login
 sudo systemctl enable gdm
