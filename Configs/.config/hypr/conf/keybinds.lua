@@ -42,6 +42,7 @@ hl.bind(key("mouse_up"),   hl.dsp.focus({ workspace = "e-1" }))
 -- Move/resize with mainMod + left/right click
 hl.bind(key("mouse:272"), hl.dsp.window.drag(),   { mouse = true })
 hl.bind(key("mouse:273"), hl.dsp.window.resize(), { mouse = true })
+hl.bind(key("X"), hl.dsp.window.resize(), {mouse = true})
 
 -- Volume and brightness
 local media = { locked = true, repeating = true }
@@ -57,3 +58,5 @@ hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = tr
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+
+
