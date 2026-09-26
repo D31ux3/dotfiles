@@ -3,6 +3,7 @@
 local vars = {
     terminal    = "kitty",
     fileManager = "dolphin",
+    browser = "brave-origin",
     menu        = "~/.config/rofi/launchers/type-7/launcher.sh",
     mainMod     = "SUPER",
     wallpaper   = "~/Pictures/Wallpapers/Lucy-rain.png",

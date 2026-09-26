@@ -61,3 +61,7 @@ pipewire
 pipewire-pulse
 pipewire-alsa
 wireplumber
+wl-clipboard
+cliphist
+hyprlock
+playerctl
