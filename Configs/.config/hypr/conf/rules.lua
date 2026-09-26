@@ -34,7 +34,7 @@ hl.window_rule({
 
 hl.window_rule({
     name  = "pavucontrol-float",
-    match = { class = "^pavucontrol$" },
+    match = { class = "^org\\.pulseaudio\\.pavucontrol$" },
 
     float  = true,
     size   = "600 400",
