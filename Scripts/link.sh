@@ -3,7 +3,7 @@
 # This way, editing ~/.config/<something> edits the repo directly (and vice versa).
 # If a real file/directory already exists at the destination, it is moved to ~/.dotfiles-backup/<date>/
 
-DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BACKUP="$HOME/.dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
 
 link() {
