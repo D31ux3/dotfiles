@@ -12,6 +12,7 @@ window#waybar {
 }
 
 /* base modules */
+#custom-power,
 #cpu,
 #memory,
 #clock,
