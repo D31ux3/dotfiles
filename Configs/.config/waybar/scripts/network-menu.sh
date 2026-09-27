@@ -32,16 +32,16 @@ rofi_menu() {
         -theme-str 'element-icon { enabled: false; }' \
         -theme-str 'element { padding: 8px 12px; }' \
         -theme-str 'inputbar { children: [ "textbox-prompt-colon", "entry" ]; }' \
-        -theme-str 'entry { placeholder: "Buscar"; }'
+        -theme-str 'entry { placeholder: "Search"; }'
 }
 
 rofi_password() {
-    rofi -dmenu -password -p "Contraseña" -mesg "Contraseña para <b>$1</b>" \
+    rofi -dmenu -password -p "Password" -mesg "Password for <b>$1</b>" \
         -theme "$theme" \
         -theme-str 'window { width: 550px; }' \
         -theme-str 'element-icon { enabled: false; }' \
         -theme-str 'inputbar { children: [ "textbox-prompt-colon", "entry" ]; }' \
-        -theme-str 'entry { placeholder: "Contraseña"; width: 350px; }' \
+        -theme-str 'entry { placeholder: "Password"; width: 350px; }' \
         -theme-str 'listview { enabled: false; }'
 }
 
@@ -56,36 +56,58 @@ signal_icon() {
     fi
 }
 
+wifi_uuids() {
+    nmcli -t -e no -f UUID,TYPE connection show | awk -F: '$2 == "802-11-wireless" { print $1 }'
+}
+
+saved_profile() {
+    # $1 = SSID; prints the UUID of the most recently used saved profile for it.
+    # Matched by SSID, not by name: NetworkManager names duplicates "SSID 1", "SSID 2"...
+    local uuid
+    for uuid in $(wifi_uuids); do
+        [[ $(nmcli -g 802-11-wireless.ssid connection show uuid "$uuid") == "$1" ]] || continue
+        printf '%s %s\n' "$(nmcli -g connection.timestamp connection show uuid "$uuid")" "$uuid"
+    done | sort -nr | awk 'NR == 1 { print $2 }'
+}
+
 connect_wifi() {
-    local ssid="$1" secured="$2"
+    local ssid="$1" secured="$2" uuid iface err
 
     # Known network: reuse the saved profile
-    if nmcli -t -e no -f NAME,TYPE connection show | grep -Fxq "$ssid:802-11-wireless"; then
-        if nmcli connection up id "$ssid" >/dev/null 2>&1; then
-            notify "Conectado" "$ssid"
+    uuid=$(saved_profile "$ssid")
+    if [[ -n $uuid ]]; then
+        # Profiles get pinned to the interface they were created on; if the card was
+        # renamed (e.g. wlp3s0 -> wlan0) activation fails, so unpin it
+        iface=$(nmcli -g connection.interface-name connection show uuid "$uuid")
+        if [[ -n $iface && $iface != "$wifi_dev" ]]; then
+            nmcli connection modify uuid "$uuid" connection.interface-name ""
+        fi
+        if err=$(nmcli connection up uuid "$uuid" ifname "$wifi_dev" 2>&1); then
+            notify "Connected" "$ssid"
         else
-            notify "No se pudo conectar" "$ssid"
+            notify "Connection failed" "$ssid: ${err##*Error: }"
         fi
         return
     fi
 
+    local args=(device wifi connect "$ssid" ifname "$wifi_dev")
     if [[ $secured == 1 ]]; then
         local password
         password=$(rofi_password "$ssid") || return
         [[ -z $password ]] && return
-        if nmcli device wifi connect "$ssid" password "$password" >/dev/null 2>&1; then
-            notify "Conectado" "$ssid"
-        else
-            # nmcli keeps the profile even on failure; drop it so the next try asks again
-            nmcli connection delete id "$ssid" >/dev/null 2>&1
-            notify "No se pudo conectar" "$ssid (¿contraseña incorrecta?)"
-        fi
+        args+=(password "$password")
+    fi
+
+    local before
+    before=$(wifi_uuids)
+    if err=$(nmcli "${args[@]}" 2>&1); then
+        notify "Connected" "$ssid"
     else
-        if nmcli device wifi connect "$ssid" >/dev/null 2>&1; then
-            notify "Conectado" "$ssid"
-        else
-            notify "No se pudo conectar" "$ssid"
-        fi
+        # nmcli keeps the new profile even on failure; drop it so the next try asks again
+        for uuid in $(wifi_uuids); do
+            grep -Fxq "$uuid" <<< "$before" || nmcli connection delete uuid "$uuid" >/dev/null 2>&1
+        done
+        notify "Connection failed" "$ssid: ${err##*Error: }"
     fi
 }
 
@@ -104,9 +126,9 @@ wifi_state=$(nmcli radio wifi)
 # Wi-Fi toggle (only if there is a Wi-Fi card)
 if [[ -n $wifi_dev ]]; then
     if [[ $wifi_state == enabled ]]; then
-        add "$icon_wifi_off  Apagar Wi-Fi" "wifi-off"
+        add "$icon_wifi_off  Turn Wi-Fi off" "wifi-off"
     else
-        add "$icon_wifi_on  Encender Wi-Fi" "wifi-on"
+        add "$icon_wifi_on  Turn Wi-Fi on" "wifi-on"
     fi
 fi
 
@@ -116,7 +138,7 @@ while IFS=: read -r dev type state conn; do
     if [[ $state == connected ]]; then
         add "$icon_ethernet  $conn ($dev)  $icon_check" "wired-down:$dev"
     else
-        add "$icon_ethernet  $dev (desconectado)" "wired-up:$dev"
+        add "$icon_ethernet  $dev (disconnected)" "wired-up:$dev"
     fi
 done < <(nmcli -t -e no -f DEVICE,TYPE,STATE,CONNECTION device)
 
@@ -137,22 +159,22 @@ if [[ -n $wifi_dev && $wifi_state == enabled ]]; then
                 | awk '{ key = $0; for (i = 0; i < 3; i++) sub(/^[^:]*:/, "", key) } !seen[key]++')
 fi
 
-add "$icon_settings  Configuración avanzada" "settings"
+add "$icon_settings  Advanced settings" "settings"
 
 # Current status line
 active=$(nmcli -t -e no -f NAME connection show --active | grep -vx lo | head -n1)
-mesg="Conectado a: <b>${active:-ninguna red}</b>"
+mesg="Connected to: <b>${active:-no network}</b>"
 
-choice=$(printf '%s\n' "${labels[@]}" | rofi_menu "Red" "$mesg") || exit 0
+choice=$(printf '%s\n' "${labels[@]}" | rofi_menu "Network" "$mesg") || exit 0
 [[ -z $choice ]] && exit 0
 action="${actions[$choice]}"
 
 case "$action" in
-    wifi-on)        nmcli radio wifi on ;;
-    wifi-off)       nmcli radio wifi off ;;
-    wifi-down)      nmcli device disconnect "$wifi_dev" >/dev/null && notify "Wi-Fi desconectado" ;;
+    wifi-on)        nmcli radio wifi on && notify "Wi-Fi on" ;;
+    wifi-off)       nmcli radio wifi off && notify "Wi-Fi off" ;;
+    wifi-down)      nmcli device disconnect "$wifi_dev" >/dev/null && notify "Wi-Fi disconnected" ;;
     wifi-connect:*) rest="${action#wifi-connect:}"; connect_wifi "${rest#*:}" "${rest%%:*}" ;;
-    wired-up:*)     nmcli device connect "${action#wired-up:}" >/dev/null && notify "Cable conectado" "${action#wired-up:}" ;;
-    wired-down:*)   nmcli device disconnect "${action#wired-down:}" >/dev/null && notify "Cable desconectado" "${action#wired-down:}" ;;
+    wired-up:*)     nmcli device connect "${action#wired-up:}" >/dev/null && notify "Wired connected" "${action#wired-up:}" ;;
+    wired-down:*)   nmcli device disconnect "${action#wired-down:}" >/dev/null && notify "Wired disconnected" "${action#wired-down:}" ;;
     settings)       nm-connection-editor & ;;
 esac

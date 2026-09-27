@@ -68,6 +68,10 @@ window#waybar {
     color: @critical;
 }
 
+#network.disabled {
+    color: @muted;
+}
+
 /* battery */
 #battery {
     color: @good;
