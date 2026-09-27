@@ -1,31 +1,64 @@
 {
     "position": "top",
-    "margin-top": 15,
+    "margin-top": 3,
     "modules-left": [
-        "clock",
-        "hyprland/workspaces"
+        "cpu",
+        "memory",
+        "clock"
     ],
     "modules-center": [
-        "tray"
+        "hyprland/workspaces"
     ],
     "modules-right": [
+        "tray",
         "pulseaudio",
         "network",
-        "custom/battery",
+        "battery",
         "custom/notification"
     ],
 
-
-
-    "clock": {
-        "interval": 60,
-        "tooltip": true,
-        "format": "{:%H.%M}",
-        "tooltip-format": "{:%Y-%m-%d}",
+    "cpu": {
+        "interval": 5,
+        "format": "{}% ",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 5,
+        "format": "{percentage}% ",
+        "max-length": 10,
+        "tooltip":true,
+        "tooltip-format":"Used: {used}/{total} GiB\nAvailable: {avail} GiB\nSwap: {swapUsed}/{swapTotal} GiB ({swapPercentage}%)"
     },
 
+    "clock": {
+        "format": "{:%H:%M}  ",
+        "format-alt": "{:%A, %B %d, %Y (%R)} 󰃰 ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"             : "months",
+            "mode-mon-col"     : 3,
+            "first-day-of-week": 1,
+            "on-scroll"        : 1,
+            "on-click-right"   : "mode",
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+	}
+},
+
     "hyprland/workspaces": {
-        "format": "{name}",
+        "format": "{name}"
     },
 
 
@@ -58,14 +91,15 @@
 
     "network": {
         "format": "{ifname}",
-        "format-wifi": "{essid} ",
-        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-        "format-disconnected": "", //An empty format will hide the module.
-        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "󱛅",
+        "tooltip-format": "{ifname}",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
         "tooltip-format-ethernet": "{ifname} ",
         "tooltip-format-disconnected": "Disconnected",
-        "max-length": 50
+        "max-length": 50,
+        "on-click": "~/.config/waybar/scripts/network-menu.sh"
     },
 
     "battery": {
@@ -81,17 +115,9 @@
         "max-length": 25
     },
 
-    "custom/battery": {
-        "exec": "echo '{\"text\": \"85% \", \"tooltip\": \"Simulated battery in VM\\n85% - Charging\", \"class\": \"battery\", \"percentage\": 85}'",
-        "return-type": "json",
-        "interval": 30,                  // updates every 30 seconds (can be lowered)
-        "format": "{}",
-        "on-click": "notify-send 'Simulated battery' 'This is only for testing in a VM'"
-    },
-
     "custom/notification": {
         "tooltip": true,
-        "format": "<span size='16pt'>{icon}</span>",
+        "format": "<span size='13pt'>{icon}</span>",
         "format-icons": {
         "notification": "󱅫",
         "none": "󰂜",

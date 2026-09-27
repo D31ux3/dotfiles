@@ -40,3 +40,11 @@ hl.window_rule({
     size   = "600 400",
     center = true,
 })
+
+-- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/#layer-rules
+hl.layer_rule({
+    name  = "waybar-blur",
+    match = { namespace = "waybar" },
+
+    blur = false,
+})

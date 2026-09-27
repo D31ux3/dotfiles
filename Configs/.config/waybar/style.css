@@ -1,9 +1,9 @@
 @import 'colors/colors.css';
 * {
     border: none;
-    border-radius: 8px;
+    border-radius: 15px;
     font-family: "JetBrainsMono Nerd Font Propo", monospace;
-    font-size: 13px;
+    font-size: 12px;
     min-height: 0;
 }
 
@@ -12,16 +12,18 @@ window#waybar {
 }
 
 /* base modules */
+#cpu,
+#memory,
 #clock,
 #workspaces,
 #tray,
 #pulseaudio,
 #network,
-#custom-battery,
+#battery,
 #custom-notification {
     background: @bg;
     color: @text;
-    padding: 6px 12px;
+    padding: 4px 10px;
     margin: 0 6px;
 }
 
@@ -29,15 +31,13 @@ window#waybar {
 #clock:hover,
 #pulseaudio:hover,
 #network:hover,
-#custom-battery:hover,
+#battery:hover,
 #custom-notification:hover {
     background: @surface;
 }
 
 /* workspaces */
 #workspaces button {
-    padding: 4px 8px;
-    margin: 0 3px;
     color: @muted;
     background: transparent;
 }
@@ -68,8 +68,7 @@ window#waybar {
 }
 
 /* battery */
-#battery,
-#custom-battery {
+#battery {
     color: @good;
 }
 
@@ -83,5 +82,5 @@ window#waybar {
 
 /* notifications */
 #custom-notification {
-    font-size: 16px;
+    font-size: 13px;
 }

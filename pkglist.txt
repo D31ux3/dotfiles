@@ -65,3 +65,4 @@ wl-clipboard
 cliphist
 hyprlock
 playerctl
+obs-studio
