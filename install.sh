@@ -52,5 +52,17 @@ fi
 
 # Enable GUI login
 sudo systemctl enable gdm
+# Enable NetworkManager
+sudo systemctl enable NetworkManager
+# Wi-Fi goes through NetworkManager + wpa_supplicant (started by NM, not enabled on its own);
+# a leftover iwd service would fight NM for the Wi-Fi card
+if systemctl is-enabled -q iwd 2>/dev/null; then
+    sudo systemctl disable --now iwd
+fi
+# Enable bluetooth
+sudo systemctl enable bluetooth
+# Enable fstrim.timer that automatically performs TRIM operations
+# to maintain performance and extend lifespan.
+sudo systemctl enable fstrim.timer
 
 echo "reboot your system"

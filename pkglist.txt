@@ -1,10 +1,12 @@
 adw-gtk-theme
 awww
+blueman
+bluez
+bluez-utils
 brightnessctl
 cmatrix
 discord
 dolphin
-dunst
 eza
 fastfetch
 firefox
@@ -14,7 +16,6 @@ github-cli
 grim
 htop
 hyprland
-iwd
 kitty
 nano
 networkmanager
@@ -44,6 +45,7 @@ wireless_tools
 woff2-font-awesome
 wpa_supplicant
 xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
 xdg-utils
 zram-generator
 zsh
