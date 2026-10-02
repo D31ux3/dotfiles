@@ -27,6 +27,9 @@ if ! command -v yay &> /dev/null; then
     rm -rf /tmp/yay
 fi
 
+# GPU drivers (see gpu-drivers.sh)
+"$DOTFILES/Scripts/gpu-drivers.sh"
+
 # Install official packages
 while read -r pkg || [ -n "$pkg" ]; do
     [ -z "$pkg" ] && continue
