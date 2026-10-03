@@ -10,14 +10,16 @@ dolphin
 eza
 fastfetch
 firefox
-gdm
+sddm
 git
 github-cli
+gnome-keyring
 grim
 htop
 hyprland
 hypridle
 kitty
+libsecret
 nano
 networkmanager
 network-manager-applet

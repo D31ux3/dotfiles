@@ -50,8 +50,19 @@ fi
 # Link configuration files and wallpapers (symlinks, see link.sh)
 "$DOTFILES/Scripts/link.sh"
 
-# Enable GUI login
-sudo systemctl enable gdm
+# Enable GUI login (SDDM). Only one display manager can be enabled,
+# so disable the one a previous install left (gdm, lightdm...)
+dm=$(readlink /etc/systemd/system/display-manager.service)
+if [ -n "$dm" ] && [ "$(basename "$dm")" != "sddm.service" ]; then
+    sudo systemctl disable "$(basename "$dm")"
+fi
+sudo systemctl enable sddm
+# SDDM has no default-session setting, it preselects the last session used (state.conf).
+# Point it to Hyprland when there is none yet or it no longer exists (e.g. GNOME was removed)
+last_session=$(sudo sed -n 's/^Session=//p' /var/lib/sddm/state.conf 2>/dev/null)
+if [ ! -f "$last_session" ]; then
+    printf '[Last]\nSession=/usr/share/wayland-sessions/hyprland.desktop\n' | sudo tee /var/lib/sddm/state.conf > /dev/null
+fi
 # Enable NetworkManager
 sudo systemctl enable NetworkManager
 # Wi-Fi goes through NetworkManager + wpa_supplicant (started by NM, not enabled on its own);

@@ -1,0 +1,89 @@
+TODO - Entorno de escritorio completo para desarrollo de software y videojuegos
+
+Orden recomendado:
+  1. Drivers NVIDIA + lib32 de Vulkan
+  2. Servicios en install.sh + conflicto de Wi-Fi
+  3. hypridle + gestor de llaves
+  4. Fuentes + portal de archivos
+  5. Herramientas de desarrollo y juegos
+
+=====================================================================
+1. PROBLEMAS GRAVES (rompen el sistema o una instalación limpia)
+=====================================================================
+[x] NVIDIA sin usar: nvidia-utils instalado pero no hay módulo de kernel cargado (solo i915)
+    - install.sh detecta la GPU NVIDIA con lspci e instala el driver de su generación:
+      Turing+ -> nvidia-open (o -dkms si hay otros kernels), Maxwell/Pascal/Volta -> 580xx (AUR),
+      Kepler -> 470xx (AUR); nvidia-prime solo si además hay GPU Intel/AMD (portátil híbrido)
+    - Quitar: xf86-video-*, vulkan-nouveau, xorg-server, xorg-xinit (inútiles en Wayland)
+[x] Añadir versiones de 32 bits de Vulkan: lib32-vulkan-intel (o lib32-nvidia-utils)
+    - Sin ellas Steam/Proton falla en muchos juegos
+    - install.sh instala los drivers de Intel/AMD/NVIDIA según las GPUs que detecta, con sus lib32
+[X] install.sh solo activa gdm: activar también NetworkManager, bluetooth y fstrim.timer
+[x] Varios gestores de Wi-Fi a la vez (iwd, wpa_supplicant, NetworkManager): elegir uno
+    - Elegido: NM con wpa_supplicant. iwd fuera de pkglist; install.sh lo desactiva si estaba activo
+[X] Dos demonios de notificaciones (dunst y swaync): quitar dunst
+[x] Portal de selección de archivos: añadir xdg-desktop-portal-gtk o -kde a pkglist
+    - Elegido: xdg-desktop-portal-gtk (fallback por defecto de hyprland-portals.conf)
+    - Ahora funciona por dependencia, pero en instalación limpia fallarían los diálogos Abrir/Guardar
+
+=====================================================================
+2. ESCRITORIO BÁSICO
+=====================================================================
+[X] Bloqueo/suspensión por inactividad (ahora nunca se bloquea ni apaga) -> hypridle
+[x] Gestor de contraseñas y llaves (VS Code, gh, Brave, Discord) -> gnome-keyring + libsecret, o kwallet
+    - gnome-keyring + libsecret; SDDM lo desbloquea al iniciar sesión (pam_gnome_keyring en /etc/pam.d/sddm)
+[x] Bluetooth -> bluez, bluez-utils, blueman
+[ ] Energía del portátil -> power-profiles-daemon (+ módulo en waybar)
+[ ] Montaje automático USB -> udiskie, ntfs-3g, exfatprogs
+[ ] Fuentes de respaldo (emojis, CJK) -> noto-fonts, noto-fonts-emoji, noto-fonts-cjk
+[ ] Visores imagen/PDF/vídeo -> imv o gwenview, zathura u okular, mpv
+[ ] Compresión -> ark o file-roller, 7zip, unrar
+[ ] Capturas con anotación y selector de color -> satty o swappy, hyprpicker
+[ ] Monitor externo (ahora modo fijo único) -> nwg-displays o reglas por salida
+[ ] Cortafuegos y backups -> ufw, timeshift (raíz ext4, sin snapshots btrfs)
+[ ] Mantenimiento -> pacman-contrib (paccache.timer), reflector, man-db
+[ ] Teclado: kb_layout "us" -> añadir us(intl) o es con atajo para cambiar
+[ ] SUPER + M cierra Hyprland sin confirmar -> usar el menú de apagado
+
+=====================================================================
+3. DESARROLLO DE SOFTWARE
+=====================================================================
+[ ] Compiladores y herramientas: clang, lldb, cmake, ninja, meson, valgrind, pkgconf
+[ ] Lenguajes/versiones: mise (o rustup + fnm + uv), dotnet-sdk (Godot C# / Unity)
+[ ] Contenedores: docker o podman + compose, usuario en el grupo correspondiente
+[ ] Git: versionar .gitconfig, añadir git-lfs (imprescindible para assets), git-delta, lazygit
+[ ] Terminal: fzf, fd, bat, zoxide, jq, btop, tldr, direnv
+[ ] Zsh: zsh-autosuggestions, zsh-syntax-highlighting, definir EDITOR/VISUAL
+[ ] VS Code en Wayland:
+    - ELECTRON_OZONE_PLATFORM_HINT=auto en env.lua
+    - code-flags.conf con --password-store=gnome-libsecret
+    - versionar settings.json de VS Code
+
+=====================================================================
+4. DESARROLLO DE VIDEOJUEGOS
+=====================================================================
+[ ] Motores: godot (o godot-mono), unityhub (AUR) si se usa
+[ ] Arte y audio: blender, krita, aseprite o libresprite, gimp, inkscape, audacity, tiled o ldtk
+[ ] Gráficos y depuración: vulkan-tools, vulkan-validation-layers, renderdoc, tracy, sdl2/sdl3
+[ ] Reglas Hyprland: diálogos/popups de Godot, Unity y Blender flotantes
+
+=====================================================================
+5. JUGAR
+=====================================================================
+[ ] Herramientas: gamemode + lib32-gamemode, mangohud + lib32-mangohud, gamescope,
+    protonup-qt (Proton-GE), lutris o heroic, wine-staging, winetricks
+[ ] Mandos: game-devices-udev, xpadneo (Xbox por bluetooth)
+[ ] Ajustes Hyprland:
+    - allow_tearing = true + regla "immediate" para juegos
+    - inactive_opacity 0.85 afecta a juegos -> regla de opacidad 1 para pantalla completa y Steam/juegos
+    - VRR si la pantalla lo soporta
+    - hypridle no debe bloquear con pantalla completa o audio activo
+
+=====================================================================
+6. EL REPO
+=====================================================================
+[ ] readme.md en "WIP": documentar atajos y pasos manuales
+[ ] install.sh instala paquetes uno a uno (lento, oculta errores)
+    -> pacman -S --needed - < pkglist.txt
+[ ] Añadir directorio para configuración de /etc (zram, NetworkManager, modprobe nvidia)
+    y un paso que active los servicios
