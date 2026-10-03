@@ -7,6 +7,8 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("waybar")
     hl.exec_cmd("swaync")
     hl.exec_cmd("hypridle")
+    -- Automount USB drives with a notification; tray icon (eject/open) only while one is plugged in
+    hl.exec_cmd("udiskie --smart-tray --appindicator")
     hl.exec_cmd("~/.config/hypr/scripts/wallpaper.sh")
     -- Polkit authentication agent (password prompts for GUI apps)
     hl.exec_cmd("systemctl --user start plasma-polkit-agent")

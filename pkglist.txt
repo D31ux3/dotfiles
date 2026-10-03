@@ -62,3 +62,7 @@ cliphist
 hyprlock
 playerctl
 obs-studio
+udiskie
+libappindicator
+ntfs-3g
+exfatprogs
