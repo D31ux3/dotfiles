@@ -14,6 +14,7 @@
         "pulseaudio",
         "network",
         "battery",
+        "power-profiles-daemon",
         "custom/notification",
         "custom/power"
     ],
@@ -107,6 +108,17 @@
         "format-plugged": " {capacity}%",
         "format-icons": ["", "", "", "", ""],
         "max-length": 25
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "format-icons": {
+            "default": "󰓅",
+            "performance": "󰓅",
+            "balanced": "󰾅",
+            "power-saver": "󰾆"
+        }
     },
 
     "custom/notification": {

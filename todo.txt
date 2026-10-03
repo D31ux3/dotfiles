@@ -33,7 +33,7 @@ Orden recomendado:
 [x] Gestor de contraseñas y llaves (VS Code, gh, Brave, Discord) -> gnome-keyring + libsecret, o kwallet
     - gnome-keyring + libsecret; SDDM lo desbloquea al iniciar sesión (pam_gnome_keyring en /etc/pam.d/sddm)
 [x] Bluetooth -> bluez, bluez-utils, blueman
-[ ] Energía del portátil -> power-profiles-daemon (+ módulo en waybar)
+[x] Energía del portátil -> power-profiles-daemon (+ módulo en waybar)
 [ ] Montaje automático USB -> udiskie, ntfs-3g, exfatprogs
 [ ] Fuentes de respaldo (emojis, CJK) -> noto-fonts, noto-fonts-emoji, noto-fonts-cjk
 [ ] Visores imagen/PDF/vídeo -> imv o gwenview, zathura u okular, mpv

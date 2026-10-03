@@ -28,6 +28,7 @@ otf-font-awesome
 pavucontrol
 qt6ct
 breeze
+power-profiles-daemon
 polkit-kde-agent
 qt5-wayland
 qt6-wayland

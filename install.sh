@@ -72,6 +72,8 @@ if systemctl is-enabled -q iwd 2>/dev/null; then
 fi
 # Enable bluetooth
 sudo systemctl enable bluetooth
+# Power profiles (power-saver / balanced / performance), switched from waybar
+sudo systemctl enable power-profiles-daemon
 # Enable fstrim.timer that automatically performs TRIM operations
 # to maintain performance and extend lifespan.
 sudo systemctl enable fstrim.timer
