@@ -25,6 +25,9 @@ networkmanager
 network-manager-applet
 nwg-look
 otf-font-awesome
+noto-fonts
+noto-fonts-emoji
+noto-fonts-cjk
 pavucontrol
 qt6ct
 breeze
