@@ -50,6 +50,15 @@ hl.window_rule({
     center = true,
 })
 
+hl.window_rule({
+    name  = "mpv-float",
+    match = { class = "mpv"},
+
+    float  = true,
+    size   = "1280 720",
+    center = true,
+})
+
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/#layer-rules
 hl.layer_rule({
     name  = "waybar-blur",
