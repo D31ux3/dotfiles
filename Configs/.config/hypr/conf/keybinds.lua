@@ -23,9 +23,9 @@ hl.bind(key("C"), hl.dsp.window.center()) -- floating only
 hl.bind(key("L"), hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
 hl.bind(key("V"), hl.dsp.exec_cmd("cliphist list | rofi -dmenu -p clipboard | cliphist decode | wl-copy"))
 
--- Screenshots: Print = region to clipboard, SHIFT + Print = full screen to ~/Pictures/Screenshots
-hl.bind("Print",         hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
-hl.bind("SHIFT + Print", hl.dsp.exec_cmd("mkdir -p ~/Pictures/Screenshots && grim ~/Pictures/Screenshots/$(date +%Y%m%d-%H%M%S).png"))
+-- Screenshots: Print = region to clipboard, mainMod + Print = full screen to clipboard and opened in satty (not saved)
+hl.bind("Print",        hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
+hl.bind(key("Print"),   hl.dsp.exec_cmd("grim - | wl-copy && wl-paste | satty -f - --copy-command wl-copy"))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(key("left"),  hl.dsp.focus({ direction = "left" }))
