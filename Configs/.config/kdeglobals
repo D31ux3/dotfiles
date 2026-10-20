@@ -1,5 +1,7 @@
 [General]
 ColorScheme=BreezeDark
+TerminalApplication=kitty
+TerminalService=kitty.desktop
 
 [Icons]
 Theme=breeze-dark
