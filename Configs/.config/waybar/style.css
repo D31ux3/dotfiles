@@ -17,7 +17,6 @@ window#waybar {
 #memory,
 #clock,
 #workspaces,
-#tray,
 #pulseaudio,
 #network,
 #battery,
@@ -60,11 +59,35 @@ window#waybar {
     color: @accent;
 }
 
-/* tray: ocultar cuando no hay iconos */
-#tray.empty {
+/* tray: style the visible icons, not the container, so it disappears when only
+   passive items exist (e.g. udiskie --smart-tray with no drive plugged in) */
+#tray {
     background: transparent;
     padding: 0;
     margin: 0;
+}
+
+/* visible icons form a single pill; GTK skips hidden nodes for :first/:last-child */
+#tray > * {
+    background: @bg;
+    border-radius: 0;
+    padding: 4px 5px;
+}
+
+#tray > *:first-child {
+    border-radius: 15px 0 0 15px;
+    padding-left: 10px;
+    margin-left: 6px;
+}
+
+#tray > *:last-child {
+    border-radius: 0 15px 15px 0;
+    padding-right: 10px;
+    margin-right: 6px;
+}
+
+#tray > *:only-child {
+    border-radius: 15px;
 }
 
 /* audio */
