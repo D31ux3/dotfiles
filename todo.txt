@@ -34,8 +34,8 @@ Orden recomendado:
     - gnome-keyring + libsecret; SDDM lo desbloquea al iniciar sesión (pam_gnome_keyring en /etc/pam.d/sddm)
 [x] Bluetooth -> bluez, bluez-utils, blueman
 [x] Energía del portátil -> power-profiles-daemon (+ módulo en waybar)
-[ ] Montaje automático USB -> udiskie, ntfs-3g, exfatprogs
-[ ] Fuentes de respaldo (emojis, CJK) -> noto-fonts, noto-fonts-emoji, noto-fonts-cjk
+[x] Montaje automático USB -> udiskie, ntfs-3g, exfatprogs
+[x] Fuentes de respaldo (emojis, CJK) -> noto-fonts, noto-fonts-emoji, noto-fonts-cjk
 [ ] Visores imagen/PDF/vídeo -> imv o gwenview, zathura u okular, mpv
 [ ] Compresión -> ark o file-roller, 7zip, unrar
 [ ] Capturas con anotación y selector de color -> satty o swappy, hyprpicker

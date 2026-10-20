@@ -69,3 +69,4 @@ udiskie
 libappindicator
 ntfs-3g
 exfatprogs
+satty

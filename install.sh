@@ -54,6 +54,9 @@ fi
 # with "Default" it mixes the qt6ct palette and kdeglobals (light background, light text)
 kwriteconfig6 --file dolphinrc --group UiSettings --key ColorScheme BreezeDark
 
+# Open images with satty (writes ~/.config/mimeapps.list)
+xdg-mime default satty.desktop image/png image/jpeg image/webp image/bmp
+
 # Enable GUI login (SDDM). Only one display manager can be enabled,
 # so disable the one a previous install left (gdm, lightdm...)
 dm=$(readlink /etc/systemd/system/display-manager.service)
