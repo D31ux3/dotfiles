@@ -71,3 +71,4 @@ ntfs-3g
 exfatprogs
 satty
 mpv
+ark

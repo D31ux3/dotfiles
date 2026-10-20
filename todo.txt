@@ -36,9 +36,9 @@ Orden recomendado:
 [x] Energía del portátil -> power-profiles-daemon (+ módulo en waybar)
 [x] Montaje automático USB -> udiskie, ntfs-3g, exfatprogs
 [x] Fuentes de respaldo (emojis, CJK) -> noto-fonts, noto-fonts-emoji, noto-fonts-cjk
-[ ] Visores imagen/PDF/vídeo -> imv o gwenview, zathura u okular, mpv
-[ ] Compresión -> ark o file-roller, 7zip, unrar
-[ ] Capturas con anotación y selector de color -> satty o swappy, hyprpicker
+[x] Visores imagen/PDF/vídeo -> imv o gwenview, zathura u okular, mpv
+[x] Compresión -> ark o file-roller, 7zip, unrar
+[x] Capturas con anotación y selector de color -> satty o swappy, hyprpicker
 [ ] Monitor externo (ahora modo fijo único) -> nwg-displays o reglas por salida
 [ ] Cortafuegos y backups -> ufw, timeshift (raíz ext4, sin snapshots btrfs)
 [ ] Mantenimiento -> pacman-contrib (paccache.timer), reflector, man-db
