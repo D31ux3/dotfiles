@@ -84,5 +84,7 @@ sudo systemctl enable power-profiles-daemon
 # Enable fstrim.timer that automatically performs TRIM operations
 # to maintain performance and extend lifespan.
 sudo systemctl enable fstrim.timer
+# Clean the pacman package cache weekly, keeping the last 3 versions of each package
+sudo systemctl enable paccache.timer
 
 echo "reboot your system"

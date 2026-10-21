@@ -72,3 +72,6 @@ exfatprogs
 satty
 mpv
 ark
+pacman-contrib
+man-db
+man-pages
