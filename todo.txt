@@ -55,7 +55,8 @@ Orden recomendado:
 [x] Lenguajes/versiones: mise (o rustup + fnm + uv), dotnet-sdk (Godot C# / Unity)
 [x] Contenedores: docker o podman + compose, usuario en el grupo correspondiente
     - Elegido: docker + compose + buildx; docker.socket (arranca al usarlo) y usuario en el grupo docker
-[ ] Git: versionar .gitconfig, añadir git-lfs (imprescindible para assets), git-delta, lazygit
+[x] Git: versionar .gitconfig, añadir git-lfs (imprescindible para assets), git-delta, lazygit
+    - .gitconfig sin versionar (repo público, tiene la identidad); install.sh le añade LFS y delta
 [ ] Terminal: fzf, fd, bat, zoxide, jq, btop, tldr, direnv
 [ ] Zsh: zsh-autosuggestions, zsh-syntax-highlighting, definir EDITOR/VISUAL
 [ ] VS Code en Wayland:

@@ -87,3 +87,6 @@ dotnet-sdk
 docker
 docker-compose
 docker-buildx
+git-lfs
+git-delta
+lazygit

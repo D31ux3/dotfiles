@@ -57,6 +57,15 @@ kwriteconfig6 --file dolphinrc --group UiSettings --key ColorScheme BreezeDark
 # Open images with satty (writes ~/.config/mimeapps.list)
 xdg-mime default satty.desktop image/png image/jpeg image/webp image/bmp
 
+# Git settings written into ~/.gitconfig (not versioned: it holds the user's identity)
+# Large files (textures, models, audio) through LFS, in the repos that enable it in .gitattributes
+git lfs install
+# Diffs with syntax highlighting and word-level changes; n/N jumps between files
+git config --global core.pager delta
+git config --global interactive.diffFilter "delta --color-only"
+git config --global delta.navigate true
+git config --global merge.conflictStyle zdiff3
+
 # Enable GUI login (SDDM). Only one display manager can be enabled,
 # so disable the one a previous install left (gdm, lightdm...)
 dm=$(readlink /etc/systemd/system/display-manager.service)
