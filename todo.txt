@@ -53,7 +53,8 @@ Orden recomendado:
 =====================================================================
 [x] Compiladores y herramientas: clang, lldb, cmake, ninja, meson, valgrind, pkgconf
 [x] Lenguajes/versiones: mise (o rustup + fnm + uv), dotnet-sdk (Godot C# / Unity)
-[ ] Contenedores: docker o podman + compose, usuario en el grupo correspondiente
+[x] Contenedores: docker o podman + compose, usuario en el grupo correspondiente
+    - Elegido: docker + compose + buildx; docker.socket (arranca al usarlo) y usuario en el grupo docker
 [ ] Git: versionar .gitconfig, añadir git-lfs (imprescindible para assets), git-delta, lazygit
 [ ] Terminal: fzf, fd, bat, zoxide, jq, btop, tldr, direnv
 [ ] Zsh: zsh-autosuggestions, zsh-syntax-highlighting, definir EDITOR/VISUAL

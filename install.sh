@@ -86,5 +86,9 @@ sudo systemctl enable power-profiles-daemon
 sudo systemctl enable fstrim.timer
 # Clean the pacman package cache weekly, keeping the last 3 versions of each package
 sudo systemctl enable paccache.timer
+# Docker starts on the first docker command (socket), not at boot.
+# The docker group allows using it without sudo (applies after logging in again)
+sudo systemctl enable docker.socket
+sudo usermod -aG docker "$USER"
 
 echo "reboot your system"

@@ -84,3 +84,6 @@ valgrind
 pkgconf
 mise
 dotnet-sdk
+docker
+docker-compose
+docker-buildx
