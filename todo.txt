@@ -51,7 +51,7 @@ Orden recomendado:
 =====================================================================
 3. DESARROLLO DE SOFTWARE
 =====================================================================
-[ ] Compiladores y herramientas: clang, lldb, cmake, ninja, meson, valgrind, pkgconf
+[x] Compiladores y herramientas: clang, lldb, cmake, ninja, meson, valgrind, pkgconf
 [ ] Lenguajes/versiones: mise (o rustup + fnm + uv), dotnet-sdk (Godot C# / Unity)
 [ ] Contenedores: docker o podman + compose, usuario en el grupo correspondiente
 [ ] Git: versionar .gitconfig, añadir git-lfs (imprescindible para assets), git-delta, lazygit

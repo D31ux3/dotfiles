@@ -75,3 +75,10 @@ ark
 pacman-contrib
 man-db
 man-pages
+clang
+lldb
+cmake
+ninja
+meson
+valgrind
+pkgconf
