@@ -123,5 +123,8 @@ alias orphans="pacman -Qtdq | sudo pacman -Rns -"
 alias dots="cd ~/dotfiles"
 alias reload="source ~/.zshrc"
 
+# Language versions (node, python, ...) per project from mise.toml
+command -v mise &> /dev/null && eval "$(mise activate zsh)"
+
 # Starship initialization
 eval "$(starship init zsh)"

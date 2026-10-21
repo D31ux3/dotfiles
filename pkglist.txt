@@ -82,3 +82,5 @@ ninja
 meson
 valgrind
 pkgconf
+mise
+dotnet-sdk
