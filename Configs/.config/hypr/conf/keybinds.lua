@@ -11,7 +11,7 @@ end
 hl.bind(key("T"), hl.dsp.exec_cmd(vars.terminal))
 hl.bind(key("Q"), hl.dsp.window.close())
 hl.bind(key("B"), hl.dsp.exec_cmd(vars.browser))
-hl.bind(key("M"), hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(key("M"), hl.dsp.exec_cmd("~/.config/hypr/scripts/power-menu.sh"))
 hl.bind(key("E"), hl.dsp.exec_cmd(vars.fileManager))
 hl.bind(key("F"), hl.dsp.window.float({ action = "toggle" }))
 hl.bind(key("A"), hl.dsp.exec_cmd(vars.menu .. " || pkill rofi"))

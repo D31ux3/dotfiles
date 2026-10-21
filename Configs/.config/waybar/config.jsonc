@@ -144,7 +144,7 @@
 
     "custom/power": {
         "format": "⏻",
-        "on-click": "~/.config/waybar/scripts/power-menu.sh",
+        "on-click": "~/.config/hypr/scripts/power-menu.sh",
         "tooltip": false
     }
     

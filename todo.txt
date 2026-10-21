@@ -45,7 +45,8 @@ Orden recomendado:
     - Sin reflector: el mirrorlist ya usa los CDN oficiales (fastly/geo.mirror.pkgbuild.com)
 [x] Teclado: kb_layout "us" -> añadir us(intl) o es con atajo para cambiar
     - Elegido: us altgr-intl (teclado físico americano): AltGr + n = ñ, AltGr + a = á
-[ ] SUPER + M cierra Hyprland sin confirmar -> usar el menú de apagado
+[x] SUPER + M cierra Hyprland sin confirmar -> usar el menú de apagado
+    - SUPER + M y el botón de waybar abren hypr/scripts/power-menu.sh (lock, suspend, log out, reboot, shutdown)
 
 =====================================================================
 3. DESARROLLO DE SOFTWARE
