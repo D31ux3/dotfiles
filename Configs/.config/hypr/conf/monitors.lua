@@ -1,6 +1,6 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 
--- For specific monitor configuration go to monitors.local.lua
+-- For specific monitor configuration go to monitors_local.lua
 
 -- Any monitor: its native mode and scale, so it works with whatever screen is plugged in
 hl.monitor({
@@ -19,9 +19,9 @@ hl.monitor({
 })
 
 -- Per-monitor rules for this machine, written by scripts/detect-monitors.py (not versioned)
-local localRules = os.getenv("HOME") .. "/.config/hypr/conf/monitors.local.lua"
-local file = io.open(localRules)
+-- Loaded with require (not dofile) so Hyprland watches it and reloads when it is saved
+local file = io.open(os.getenv("HOME") .. "/.config/hypr/conf/monitors_local.lua")
 if file then
     file:close()
-    dofile(localRules)
+    require("conf.monitors_local")
 end

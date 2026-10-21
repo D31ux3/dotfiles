@@ -15,7 +15,7 @@ hl.on("hyprland.start", function()
     -- Clipboard history for mainMod + V
     hl.exec_cmd("wl-paste --type text --watch cliphist store")
     hl.exec_cmd("wl-paste --type image --watch cliphist store")
-    -- Write a rule for each new monitor into conf/monitors.local.lua
+    -- Write a rule for each new monitor into conf/monitors_local.lua
     hl.exec_cmd("~/.config/hypr/scripts/detect-monitors.py")
 end)
 
