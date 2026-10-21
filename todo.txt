@@ -43,7 +43,8 @@ Orden recomendado:
 [/] Cortafuegos y backups -> ufw, timeshift (raíz ext4, sin snapshots btrfs)
 [x] Mantenimiento -> pacman-contrib (paccache.timer), reflector, man-db
     - Sin reflector: el mirrorlist ya usa los CDN oficiales (fastly/geo.mirror.pkgbuild.com)
-[ ] Teclado: kb_layout "us" -> añadir us(intl) o es con atajo para cambiar
+[x] Teclado: kb_layout "us" -> añadir us(intl) o es con atajo para cambiar
+    - Elegido: us altgr-intl (teclado físico americano): AltGr + n = ñ, AltGr + a = á
 [ ] SUPER + M cierra Hyprland sin confirmar -> usar el menú de apagado
 
 =====================================================================
