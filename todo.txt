@@ -57,7 +57,8 @@ Orden recomendado:
     - Elegido: docker + compose + buildx; docker.socket (arranca al usarlo) y usuario en el grupo docker
 [x] Git: versionar .gitconfig, añadir git-lfs (imprescindible para assets), git-delta, lazygit
     - .gitconfig sin versionar (repo público, tiene la identidad); install.sh le añade LFS y delta
-[ ] Terminal: fzf, fd, bat, zoxide, jq, btop, tldr, direnv
+[x] Terminal: fzf, fd, bat, zoxide, jq, btop, tldr, direnv
+    - Elegido: + ripgrep, tealdeer como tldr; sin direnv (lo hace mise con [env]); htop se queda; cat = bat
 [ ] Zsh: zsh-autosuggestions, zsh-syntax-highlighting, definir EDITOR/VISUAL
 [ ] VS Code en Wayland:
     - ELECTRON_OZONE_PLATFORM_HINT=auto en env.lua

@@ -90,3 +90,11 @@ docker-buildx
 git-lfs
 git-delta
 lazygit
+fzf
+fd
+bat
+zoxide
+jq
+btop
+tealdeer
+ripgrep
