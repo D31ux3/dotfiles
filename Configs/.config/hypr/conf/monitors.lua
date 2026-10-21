@@ -1,11 +1,13 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 
+-- For specific monitor configuration go to monitors.local.lua
+
 -- Any monitor: its native mode and scale, so it works with whatever screen is plugged in
 hl.monitor({
     output   = "", -- Monitor - See them with: hyprctl monitors all
     mode     = "preferred",
     position = "auto",
-    scale    = "auto",
+    scale    = 1,
 })
 
 -- Virtual machines (virtio-gpu reports a 1280x800 preferred mode, not the window size)
