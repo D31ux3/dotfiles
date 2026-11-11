@@ -98,3 +98,5 @@ jq
 btop
 tealdeer
 ripgrep
+zsh-autosuggestions
+zsh-syntax-highlighting

@@ -81,12 +81,14 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+# Editor for git commits, sudoedit, crontab -e, Ctrl+X Ctrl+E...: VS Code waits until the tab is closed.
+# nano without a graphical session (TTY, SSH), where VS Code can't open
+if [[ -n $WAYLAND_DISPLAY ]]; then
+    export EDITOR="code --wait"
+else
+    export EDITOR="nano"
+fi
+export VISUAL="$EDITOR"
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -141,5 +143,13 @@ fi
 # z <part of a path> jumps to the most used matching folder, zi picks it with fzf
 command -v zoxide &> /dev/null && eval "$(zoxide init zsh)"
 
+# Suggests the rest of the command from history in gray: → accepts it, Ctrl+→ one word
+[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] &&
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Starship initialization
 eval "$(starship init zsh)"
+
+# Colors the command while typing (red if it doesn't exist). Must be loaded last
+[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] &&
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

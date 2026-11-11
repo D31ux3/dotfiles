@@ -59,7 +59,8 @@ Orden recomendado:
     - .gitconfig sin versionar (repo público, tiene la identidad); install.sh le añade LFS y delta
 [x] Terminal: fzf, fd, bat, zoxide, jq, btop, tldr, direnv
     - Elegido: + ripgrep, tealdeer como tldr; sin direnv (lo hace mise con [env]); htop se queda; cat = bat
-[ ] Zsh: zsh-autosuggestions, zsh-syntax-highlighting, definir EDITOR/VISUAL
+[x] Zsh: zsh-autosuggestions, zsh-syntax-highlighting, definir EDITOR/VISUAL
+    - Elegido: plugins con pacman (source en .zshrc); EDITOR = code --wait (nano sin sesión gráfica)
 [ ] VS Code en Wayland:
     - ELECTRON_OZONE_PLATFORM_HINT=auto en env.lua
     - code-flags.conf con --password-store=gnome-libsecret
