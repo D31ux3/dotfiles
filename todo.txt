@@ -97,7 +97,9 @@ Orden recomendado:
 6. EL REPO
 =====================================================================
 [ ] readme.md en "WIP": documentar atajos y pasos manuales
-[ ] install.sh instala paquetes uno a uno (lento, oculta errores)
+[x] install.sh instala paquetes uno a uno (lento, oculta errores)
     -> pacman -S --needed - < pkglist.txt
+    - Elegido: todo en una transacción; si falla, reintenta uno a uno (un paquete roto no bloquea el resto)
+      y al final lista los que fallaron. Las listas admiten comentarios con #
 [ ] Añadir directorio para configuración de /etc (zram, NetworkManager, modprobe nvidia)
     y un paso que active los servicios

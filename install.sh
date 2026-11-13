@@ -30,22 +30,38 @@ fi
 # GPU drivers (see gpu-drivers.sh)
 "$DOTFILES/Scripts/gpu-drivers.sh"
 
+# Packages that could not be installed, listed at the end of the script
+failed=()
+
+# install_list <file> <command...>
+# Installs every package of the list in a single transaction (one dependency resolution,
+# parallel downloads, each pacman hook runs once). A transaction is all or nothing, so if it
+# fails (a renamed package, a conflict...) it retries one by one: the rest still gets installed
+# and the failing ones are collected in $failed. Empty lines and # comments are ignored.
+install_list() {
+    local file="$1"; shift
+    local pkgs
+    mapfile -t pkgs < <(sed 's/#.*//' "$file" | tr -s ' \t' '\n' | grep -v '^$')
+    [ ${#pkgs[@]} -eq 0 ] && return
+
+    "$@" -S --needed --noconfirm "${pkgs[@]}" && return
+
+    echo "Installing $(basename "$file") at once failed, retrying package by package"
+    for pkg in "${pkgs[@]}"; do
+        "$@" -S --needed --noconfirm "$pkg" || failed+=("$pkg")
+    done
+}
+
 # Install official packages
-while read -r pkg || [ -n "$pkg" ]; do
-    [ -z "$pkg" ] && continue
-    sudo pacman -S --needed --noconfirm "$pkg" || echo "Failed to install: $pkg"
-done < "$DOTFILES/pkglist.txt"
+install_list "$DOTFILES/pkglist.txt" sudo pacman
 
 # xpadneo-dkms (AUR) builds its module for every installed kernel, which needs its headers
 for k in $(pacman -Qq linux linux-lts linux-zen linux-hardened 2>/dev/null); do
-    sudo pacman -S --needed --noconfirm "$k-headers"
+    sudo pacman -S --needed --noconfirm "$k-headers" || failed+=("$k-headers")
 done
 
 # Install AUR packages
-while read -r pkg || [ -n "$pkg" ]; do
-    [ -z "$pkg" ] && continue
-    yay -S --needed --noconfirm "$pkg" || echo "Failed to install: $pkg"
-done < "$DOTFILES/aurlist.txt"
+install_list "$DOTFILES/aurlist.txt" yay
 
 # Install OHMYZSH (zsh is installed with official packages)
 if [ ! -d ~/.oh-my-zsh ]; then
@@ -113,5 +129,12 @@ sudo systemctl enable docker.socket
 sudo usermod -aG docker "$USER"
 # gamemode (gamemoderun) changes the CPU governor and process priority only for the gamemode group
 sudo usermod -aG gamemode "$USER"
+
+if [ ${#failed[@]} -gt 0 ]; then
+    echo
+    echo "These packages could not be installed (see the errors above):"
+    printf '  %s\n' "${failed[@]}"
+    echo
+fi
 
 echo "reboot your system"
