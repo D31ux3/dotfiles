@@ -21,17 +21,15 @@ git clone https://github.com/d31ux3/dotfiles.git ~/dotfiles
 ~/dotfiles/install.sh
 ```
 
-Reboot when it finishes. Details and manual steps are in [docs/instalacion.md](docs/instalacion.md).
+Reboot when it finishes. Details and manual steps are in [docs/installation.md](docs/installation.md).
 
 ## Documentation
 
-The detailed documentation is in Spanish.
-
 | Document | Contents |
 |---|---|
-| [Installation](docs/instalacion.md) | What `install.sh` does step by step, and what is left to do by hand |
-| [Keybindings](docs/atajos.md) | Every Hyprland and terminal shortcut |
-| [Desktop](docs/escritorio.md) | Waybar, menus, idle behavior, monitors, screenshots, clipboard, keyboard |
-| [Terminal and development](docs/terminal-y-desarrollo.md) | zsh, aliases, tools, Git, mise, Docker, VS Code |
-| [Gaming](docs/juegos.md) | Tools, controllers, Hyprland tweaks and how to launch games |
-| [Repo structure](docs/estructura.md) | How it is organized and how to add packages or configs |
+| [Installation](docs/installation.md) | What `install.sh` does step by step, and what is left to do by hand |
+| [Keybindings](docs/keybindings.md) | Every Hyprland and terminal shortcut |
+| [Desktop](docs/desktop.md) | Waybar, menus, idle behavior, monitors, screenshots, clipboard, keyboard |
+| [Terminal and development](docs/terminal-and-development.md) | zsh, aliases, tools, Git, mise, Docker, VS Code |
+| [Gaming](docs/gaming.md) | Tools, controllers, Hyprland tweaks and how to launch games |
+| [Repo structure](docs/structure.md) | How it is organized and how to add packages or configs |
