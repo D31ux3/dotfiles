@@ -71,7 +71,8 @@ Orden recomendado:
 4. DESARROLLO DE VIDEOJUEGOS
 =====================================================================
 [ ] Motores: godot (o godot-mono), unityhub (AUR) si se usa
-[ ] Arte y audio: blender, krita, aseprite o libresprite, gimp, inkscape, audacity, tiled o ldtk
+[/] Arte y audio: blender, krita, aseprite o libresprite, gimp, inkscape, audacity, tiled o ldtk
+    - Por ahora: krita y audacity
 [ ] Gráficos y depuración: vulkan-tools, vulkan-validation-layers, renderdoc, tracy, sdl2/sdl3
 [ ] Reglas Hyprland: diálogos/popups de Godot, Unity y Blender flotantes
 

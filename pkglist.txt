@@ -100,3 +100,5 @@ tealdeer
 ripgrep
 zsh-autosuggestions
 zsh-syntax-highlighting
+krita
+audacity
