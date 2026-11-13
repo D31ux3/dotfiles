@@ -61,7 +61,7 @@ fi
 # Clicking again while the window is open closes it
 if [[ $1 == menu ]]; then
     if pkill -f 'kitty --class updates-float'; then exit 0; fi
-    exec kitty --class updates-float -e "$0" term
+    WAYBAR_UPDATES=1 exec kitty --class updates-float -e "$0" term
 fi
 
 # term: summary inside the terminal, fresh check

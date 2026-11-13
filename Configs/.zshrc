@@ -153,3 +153,10 @@ eval "$(starship init zsh)"
 # Colors the command while typing (red if it doesn't exist). Must be loaded last
 [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] &&
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# fastfetch when a new kitty window opens: not in VS Code or other embedded terminals,
+# not again on `reload`, and not in the waybar updates window (waybar/scripts/updates.sh)
+if [[ -n $KITTY_WINDOW_ID && -z $WAYBAR_UPDATES && -z $_FF_SHOWN ]]; then
+    _FF_SHOWN=1
+    fastfetch
+fi
