@@ -77,8 +77,10 @@ for i, match in ipairs(games) do
 end
 
 hl.window_rule({
-    name  = "steam-opaque",
-    match = { class = "^steam$" },
+    -- Steam and apps where transparency gets in the way (game editor, also its running game).
+    -- Tools launched from Steam keep their own class, not steam_app_<id>, so they are listed here
+    name  = "opaque-apps",
+    match = { class = "^(steam|Godot)$" },
 
     opacity = "1 override",
 })
