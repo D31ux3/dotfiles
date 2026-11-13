@@ -20,7 +20,7 @@ choice=$(cliphist list \
         -theme-str 'inputbar { children: [ "prompt", "entry", "button-clear" ]; }' \
         -theme-str 'button-clear { expand: false; background-color: inherit; text-color: inherit; cursor: pointer; }' \
         -theme-str 'button-clear { action: "kb-custom-1"; }' \
-        -theme-str 'button-clear { content: "󰆴 Clear"; }')
+        -theme-str 'button-clear { content: "󰆴 Clear (Alt + Del)"; }')
 status=$?
 
 case $status in
