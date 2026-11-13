@@ -1,80 +1,119 @@
-adw-gtk-theme
-awww
-blueman
-bluez
-bluez-utils
-brightnessctl
-cmatrix
-discord
-dolphin
-eza
-fastfetch
-firefox
-sddm
-git
-github-cli
-gnome-keyring
-grim
-htop
-hyprland
-hypridle
-kitty
-libsecret
+# Official packages (pacman). install.sh installs them all in one transaction.
+# GPU drivers are not here: Scripts/gpu-drivers.sh picks them from the detected hardware.
+# AUR packages go in aurlist.txt.
+
+# --- Base system ---
+sudo
 nano
-networkmanager
-network-manager-applet
-nwg-look
-otf-font-awesome
-noto-fonts
-noto-fonts-emoji
-noto-fonts-cjk
-pavucontrol
-qt6ct
-breeze
-power-profiles-daemon
-polkit-kde-agent
+vim
+wget
+man-db
+man-pages
+pacman-contrib      # paccache.timer, cleans the package cache
+smartmontools       # disk health
+zram-generator      # compressed swap in RAM
+
+# --- Hyprland desktop ---
+hyprland
+uwsm                # starts Hyprland as a systemd session
+hypridle
+hyprlock
+waybar
+rofi                # app launcher and menus
+swaync              # notifications
+awww                # wallpaper
+sddm                # login screen
+polkit-kde-agent    # password prompts for GUI apps
+gnome-keyring       # stores passwords and tokens (VS Code, gh, browsers)
+libsecret
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk  # Open/Save file dialogs
+xdg-utils
 qt5-wayland
 qt6-wayland
-rofi
-slurp
-smartmontools
-starship
-steam
-sudo
-swaync
-ttf-cascadia-code-nerd
+libappindicator     # tray icons
+brightnessctl
+playerctl           # media keys
+
+# --- Look: themes and fonts ---
+adw-gtk-theme
+nwg-look            # GTK theme settings
+qt6ct               # Qt theme settings
+breeze
 ttf-jetbrains-mono-nerd
-uwsm
-vim
-waybar
-wget
-wireless_tools
+ttf-cascadia-code-nerd
+otf-font-awesome
 woff2-font-awesome
-wpa_supplicant
-xdg-desktop-portal-hyprland
-xdg-desktop-portal-gtk
-xdg-utils
-zram-generator
-zsh
+noto-fonts          # fallback for rare characters
+noto-fonts-emoji
+noto-fonts-cjk
+
+# --- Network and Bluetooth ---
+networkmanager
+network-manager-applet
+wpa_supplicant      # Wi-Fi backend used by NetworkManager
+wireless_tools
+bluez
+bluez-utils
+blueman
+
+# --- Audio ---
 pipewire
 pipewire-pulse
 pipewire-alsa
 wireplumber
-wl-clipboard
-cliphist
-hyprlock
-playerctl
-obs-studio
-udiskie
-libappindicator
+pavucontrol
+
+# --- Power and drives ---
+power-profiles-daemon
+udiskie             # automount USB drives
 ntfs-3g
 exfatprogs
-satty
+
+# --- Screenshots and clipboard ---
+grim
+slurp
+satty               # annotate screenshots, default image viewer
+wl-clipboard
+cliphist            # clipboard history
+
+# --- Apps ---
+kitty
+dolphin
+ark                 # compressed files
+firefox
+discord
 mpv
-ark
-pacman-contrib
-man-db
-man-pages
+obs-studio
+
+# --- Art and audio ---
+krita
+audacity
+
+# --- Shell and terminal tools ---
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+starship            # prompt
+eza                 # ls
+bat                 # cat
+fd                  # find
+ripgrep             # grep
+fzf
+zoxide              # cd
+jq
+tealdeer            # tldr
+htop
+btop
+fastfetch
+cmatrix
+
+# --- Development ---
+git
+git-lfs
+git-delta
+lazygit
+github-cli
 clang
 lldb
 cmake
@@ -82,26 +121,14 @@ ninja
 meson
 valgrind
 pkgconf
-mise
+mise                # language versions (node, python, rust...)
 dotnet-sdk
 docker
 docker-compose
 docker-buildx
-git-lfs
-git-delta
-lazygit
-fzf
-fd
-bat
-zoxide
-jq
-btop
-tealdeer
-ripgrep
-zsh-autosuggestions
-zsh-syntax-highlighting
-krita
-audacity
+
+# --- Gaming ---
+steam
 gamemode
 lib32-gamemode
 mangohud
