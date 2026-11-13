@@ -69,6 +69,16 @@ hl.window_rule({
     center = true,
 })
 
+hl.window_rule({
+    -- Steam friends list (the main Steam window stays tiled)
+    name  = "steam-friends-float",
+    match = { class = "^steam$", title = "^Friends List$" },
+
+    float  = true,
+    size   = "320 700",
+    center = true,
+})
+
 -- Games: Steam games (steam_app_<id>), anything run through gamescope,
 -- and windows that declare themselves a game (content-type, e.g. some native and Proton games)
 local games = {
