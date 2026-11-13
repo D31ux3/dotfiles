@@ -86,4 +86,4 @@ Docker with `compose` and `buildx`. It does not start at boot: it starts the fir
 
 ## Kitty (terminal)
 
-Tokyo Night theme, semi-transparent background and the CaskaydiaCove Nerd Font. More themes are in `Configs/.config/kitty/themes/`; switch by changing the `include` line in `kitty.conf`.
+Tokyo Night theme, semi-transparent background and the CaskaydiaCove Nerd Font. More themes are in `Configs/.config/kitty/themes/`; switch by changing the first `include` line in `kitty.conf`. The second one (`themes/matugen.conf`) sets the background, text, cursor and selection from the wallpaper.

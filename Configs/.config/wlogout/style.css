@@ -1,11 +1,13 @@
 /* Look from HyprNova by zDyant (https://github.com/zDyant/HyprNova), itself from JaKooLit.
-   Colors are fixed (HyprNova takes them from pywal): Catppuccin Mocha, like waybar and swaync.
+   Colors come from the wallpaper (matugen writes colors.css; HyprNova used pywal).
    ~/.config/hypr/scripts/power-menu.sh adds the "Goodbye / Uptime" header on top of this. */
+
+@import "colors.css";
 
 window {
     font-family: "JetBrainsMono Nerd Font", monospace;
     font-size: 16pt;
-    color: #cdd6f4;
+    color: @text;
     background-color: rgba(24, 27, 32, 0.2);
 }
 
@@ -28,7 +30,7 @@ button:focus {
 button:hover {
     background-size: 50%;
     box-shadow: 0 0 10px 3px rgba(0, 0, 0, .4);
-    background-color: #89b4fa;
+    background-color: @accent;
     color: transparent;
     transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.5s ease-in;
 }

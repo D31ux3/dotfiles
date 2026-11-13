@@ -1,1 +1,9 @@
 Configs/.config/hypr/conf/monitors_local.lua
+# Colors from the wallpaper, written by matugen (templates in Configs/.config/matugen/templates)
+Configs/.config/waybar/colors/colors.css
+Configs/.config/swaync/colors.css
+Configs/.config/wlogout/colors.css
+Configs/.config/rofi/colors/matugen.rasi
+Configs/.config/hypr/conf/colors.lua
+Configs/.config/hypr/hyprlock-colors.conf
+Configs/.config/kitty/themes/matugen.conf

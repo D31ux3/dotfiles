@@ -15,4 +15,5 @@
 
 /* Import color-scheme from `colors` directory */
 
-@import "~/.config/rofi/colors/onedark.rasi"
+/* Colors from the wallpaper, written by matugen (other schemes: see the list above) */
+@import "~/.config/rofi/colors/matugen.rasi"

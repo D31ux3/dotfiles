@@ -17,6 +17,11 @@ mkdir -p "$run"
 height=$(hyprctl -j monitors | jq -r '.[] | select(.focused) | .height / .scale | floor')
 margin=$(( height * 37 / 100 ))
 
+# Header colors from the wallpaper (matugen writes wlogout/colors.css), Catppuccin if missing
+color() { sed -n "s/^@define-color $1 *\(#[0-9a-fA-F]\{6\}\);.*/\1/p" "$conf/colors.css" 2>/dev/null; }
+text=$(color text);   text=${text:-#cdd6f4}
+muted=$(color muted); muted=${muted:-#a6adc8}
+
 escape() { sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g'; }
 goodbye=$(printf 'Goodbye %s' "$USER" | escape)
 uptime=$(printf 'Uptime: %s' "$(uptime -p | sed -e 's/up //g')" | escape)
@@ -24,8 +29,8 @@ uptime=$(printf 'Uptime: %s' "$(uptime -p | sed -e 's/up //g')" | escape)
 cat > "$run/header.svg" <<SVG
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="110">
   <g font-family="JetBrainsMono Nerd Font, monospace" text-anchor="middle">
-    <text x="450" y="48" font-size="38" font-weight="bold" fill="#cdd6f4">$goodbye</text>
-    <text x="450" y="92" font-size="20" fill="#a6adc8">$uptime</text>
+    <text x="450" y="48" font-size="38" font-weight="bold" fill="$text">$goodbye</text>
+    <text x="450" y="92" font-size="20" fill="$muted">$uptime</text>
   </g>
 </svg>
 SVG

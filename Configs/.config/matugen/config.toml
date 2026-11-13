@@ -1,0 +1,38 @@
+# matugen: colors from the wallpaper (Material You). Run by ~/.config/hypr/scripts/set-wallpaper.sh
+# (mainMod + W) and, when the colors are missing, by wallpaper.sh at startup.
+# Each template is filled with the colors and written where the app reads it; post_hook reloads the app.
+# The written files are not versioned (.gitignore). Color names: matugen image <img> --dry-run -j hex
+# Options (scheme, which color of the image) are in set-wallpaper.sh and install.sh
+[config]
+
+[templates.waybar]
+input_path  = '~/.config/matugen/templates/waybar.css'
+output_path = '~/.config/waybar/colors/colors.css'
+post_hook   = 'pkill -SIGUSR2 -x waybar || true'
+
+[templates.swaync]
+input_path  = '~/.config/matugen/templates/swaync.css'
+output_path = '~/.config/swaync/colors.css'
+post_hook   = 'swaync-client -rs >/dev/null 2>&1 || true'
+
+[templates.wlogout]
+input_path  = '~/.config/matugen/templates/wlogout.css'
+output_path = '~/.config/wlogout/colors.css'
+
+[templates.rofi]
+input_path  = '~/.config/matugen/templates/rofi.rasi'
+output_path = '~/.config/rofi/colors/matugen.rasi'
+
+[templates.hyprland]
+input_path  = '~/.config/matugen/templates/hyprland.lua'
+output_path = '~/.config/hypr/conf/colors.lua'
+post_hook   = 'hyprctl reload >/dev/null 2>&1 || true'
+
+[templates.hyprlock]
+input_path  = '~/.config/matugen/templates/hyprlock.conf'
+output_path = '~/.config/hypr/hyprlock-colors.conf'
+
+[templates.kitty]
+input_path  = '~/.config/matugen/templates/kitty.conf'
+output_path = '~/.config/kitty/themes/matugen.conf'
+post_hook   = 'pkill -SIGUSR1 -x kitty || true'

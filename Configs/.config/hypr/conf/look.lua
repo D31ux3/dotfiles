@@ -1,5 +1,8 @@
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 
+local ok, wallpaper_colors = pcall(require, "conf.colors")
+if not ok then wallpaper_colors = nil end
+
 hl.config({
     general = {
         gaps_in  = 5,
@@ -7,7 +10,8 @@ hl.config({
 
         border_size = 2,
 
-        col = {
+        -- Border colors from the wallpaper (conf/colors.lua, written by matugen), cyan-green if missing
+        col = wallpaper_colors or {
             active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
             inactive_border = "rgba(595959aa)",
         },

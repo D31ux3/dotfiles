@@ -71,6 +71,10 @@ fi
 # Link configuration files and wallpapers (symlinks, see link.sh)
 "$DOTFILES/Scripts/link.sh"
 
+# Desktop colors from the default wallpaper (matugen, see ~/.config/matugen); they change with the
+# wallpaper (mainMod + W). Generated now so nothing starts without them
+matugen image "$DOTFILES/Assets/Pictures/Wallpapers/Lucy-rain.png" --type scheme-vibrant --prefer saturation --quiet || true
+
 # VS Code extensions (theme, icons, formatter... used by the versioned settings.json).
 # Update the list with: code --list-extensions > vscode-extensions.txt
 while read -r ext || [ -n "$ext" ]; do

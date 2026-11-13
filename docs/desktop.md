@@ -43,7 +43,7 @@ Hyprland also starts: waybar, notifications (swaync), hypridle, USB automount, t
 
 ## Notifications
 
-swaync, styled after [HyprNova](https://github.com/zDyant/HyprNova). The panel (bell in waybar) has buttons to mute the speakers and the microphone, open the network, Bluetooth and GTK theme settings, a media player and the notification list. Its config is in `Configs/.config/swaync/`: colors in `colors.css`, the theme in `themes/nova-dark/`. After editing, `swaync-client -R -rs` reloads the config and the CSS (restart `swaync` after adding or removing widgets).
+swaync, styled after [HyprNova](https://github.com/zDyant/HyprNova). The panel (bell in waybar) has buttons to mute the speakers and the microphone, open the network, Bluetooth and GTK theme settings, a media player and the notification list. Its config is in `Configs/.config/swaync/`: the theme in `themes/nova-dark/`, colors from the wallpaper (see [Wallpaper and colors](#wallpaper-and-colors)). After editing, `swaync-client -R -rs` reloads the config and the CSS (restart `swaync` after adding or removing widgets).
 
 ### Network menu
 
@@ -70,13 +70,15 @@ The lock screen is **hyprlock** (`Super + L` or from the power menu).
 - That file is per machine and not in the repo. To detect a monitor again, delete its block.
 - VRR (FreeSync/G-Sync) is enabled only for fullscreen windows, on screens that support it.
 
-## Wallpaper
+## Wallpaper and colors
 
-Set by **awww** through `scripts/wallpaper.sh`. Wallpapers live in `Assets/Pictures/Wallpapers/` (linked to `~/Pictures/Wallpapers`). The first time it uses `Lucy-rain.png`; after that awww remembers the last one you set. To change it:
+Set by **awww** through `scripts/wallpaper.sh`. Wallpapers live in `Assets/Pictures/Wallpapers/` (linked to `~/Pictures/Wallpapers`). The first time it uses `Lucy-rain.png`; after that awww remembers the last one you set.
 
-```bash
-awww img ~/Pictures/Wallpapers/Leva-simple.png
-```
+`Super + W` opens a grid of the wallpapers (`scripts/set-wallpaper.sh`, or `set-wallpaper.sh <image>`). Setting one also **recolors the desktop** with [matugen](https://github.com/InioX/matugen), which builds a Material You palette from the image: waybar, notifications, the power menu, rofi, the window borders, the lock screen and kitty (background, text, cursor and selection; its 16 terminal colors stay Tokyo Night). Battery, CPU and other states keep green, yellow and red.
+
+- Config and templates: `Configs/.config/matugen/` (`config.toml` lists where each template is written and how each app is reloaded).
+- The written color files are not versioned (`.gitignore`). `install.sh` generates them from the default wallpaper, and `wallpaper.sh` regenerates them at startup if they are missing (`set-wallpaper.sh --colors`).
+- Not recolored: GTK and Qt apps, the SDDM login screen and the waybar calendar.
 
 ## Screenshots
 
@@ -102,10 +104,10 @@ awww img ~/Pictures/Wallpapers/Leva-simple.png
 
 ## Look
 
-- **Windows**: cyan-green gradient borders, rounded corners, transparency (95 % for the active window, 85 % for the rest) and blur. Games, Steam, Godot and Blender are always opaque.
+- **Windows**: gradient borders in the wallpaper's colors, rounded corners, transparency (95 % for the active window, 85 % for the rest) and blur. Games, Steam, Godot and Blender are always opaque.
 - **GTK apps**: `adw-gtk3-dark` theme and global dark mode (change it with `nwg-look`).
 - **Qt/KDE apps** (Dolphin, Ark): dark Breeze through `qt6ct`.
-- **Terminal**: kitty with the Tokyo Night theme, a semi-transparent background and the CaskaydiaCove Nerd Font.
+- **Terminal**: kitty with the Tokyo Night theme (background and text from the wallpaper), a semi-transparent background and the CaskaydiaCove Nerd Font.
 - **Launcher**: rofi with the themes from [adi1090x/rofi](https://github.com/adi1090x/rofi) (`Configs/.config/rofi/`), using `type-4` with `style-7` (`menu` in `hypr/conf/vars.lua`).
 - **Power menu**: `Super + M` and the ⏻ button open wlogout (`hypr/scripts/power-menu.sh`, set as `powerMenu` in `hypr/conf/vars.lua` and `custom/power` in waybar), with the look of [HyprNova](https://github.com/zDyant/HyprNova) (`Configs/.config/wlogout/`). Buttons: shutdown (`s`), reboot (`r`), log out (`e`), suspend (`u`) and lock (`l`); `Esc` or running it again closes it. wlogout has no text widget, so the script draws the "Goodbye / Uptime" header as an SVG above the buttons.
 

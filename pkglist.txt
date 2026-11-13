@@ -22,6 +22,7 @@ waybar
 rofi                # app launcher and menus
 swaync              # notifications
 awww                # wallpaper
+matugen             # desktop colors from the wallpaper
 sddm                # login screen
 qt6-imageformats    # SilentSDDM login theme (AUR sddm-silent-theme): image backgrounds
 polkit-kde-agent    # password prompts for GUI apps

@@ -19,6 +19,7 @@ dotfiles/
 │   │   ├── waybar/
 │   │   ├── rofi/
 │   │   ├── swaync/         Notifications (HyprNova style)
+│   │   ├── matugen/        Desktop colors from the wallpaper (templates)
 │   │   ├── kitty/
 │   │   ├── Code/User/settings.json
 │   │   └── ...

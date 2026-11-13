@@ -22,6 +22,7 @@ hl.bind(key("P"), hl.dsp.window.pin())    -- floating only: follows you across w
 hl.bind(key("C"), hl.dsp.window.center()) -- floating only
 hl.bind(key("L"), hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
 hl.bind(key("V"), hl.dsp.exec_cmd("~/.config/hypr/scripts/clipboard.sh"))
+hl.bind(key("W"), hl.dsp.exec_cmd("~/.config/hypr/scripts/set-wallpaper.sh")) -- also recolors the desktop
 
 -- Screenshots: Print = region to clipboard, mainMod + Print = full screen to clipboard and opened in satty (not saved)
 hl.bind("Print",        hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
