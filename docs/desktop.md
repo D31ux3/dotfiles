@@ -41,6 +41,10 @@ Hyprland also starts: waybar, notifications (swaync), hypridle, USB automount, t
 
 `Super + R` restarts the bar. Its config is in `Configs/.config/waybar/`.
 
+## Notifications
+
+swaync, styled after [HyprNova](https://github.com/zDyant/HyprNova). The panel (bell in waybar) has buttons to mute the speakers and the microphone, open the network, Bluetooth and GTK theme settings, a media player and the notification list. Its config is in `Configs/.config/swaync/`: colors in `colors.css`, the theme in `themes/nova-dark/`. After editing, `swaync-client -R -rs` reloads the config and the CSS (restart `swaync` after adding or removing widgets).
+
 ### Network menu
 
 A rofi menu (`waybar/scripts/network-menu.sh`) built on NetworkManager: turn Wi-Fi on or off, list networks with their signal strength and whether they need a password, connect (asks for the password when needed) and open the advanced settings. Clicking again while it is open closes it.

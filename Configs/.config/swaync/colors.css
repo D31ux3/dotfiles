@@ -1,0 +1,10 @@
+/* Palette used by the nova-dark theme (HyprNova takes these from pywal; here they are fixed,
+   matching waybar/colors/colors.css: Catppuccin Mocha) */
+@define-color foreground  #cdd6f4;
+@define-color background  #1e1e2e;
+@define-color color1      #313244; /* buttons and cards */
+@define-color color2      #f38ba8; /* critical */
+@define-color color3      #89b4fa; /* selected (floating notifications) */
+@define-color color5      #45475a; /* hover (floating notifications) */
+@define-color color6      #89b4fa; /* selected (control center) */
+@define-color background-sec #181825; /* mpris player and volume */

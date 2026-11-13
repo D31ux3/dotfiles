@@ -18,6 +18,7 @@ dotfiles/
 │   │   ├── hypr/           Hyprland, hypridle, hyprlock and their scripts
 │   │   ├── waybar/
 │   │   ├── rofi/
+│   │   ├── swaync/         Notifications (HyprNova style)
 │   │   ├── kitty/
 │   │   ├── Code/User/settings.json
 │   │   └── ...
