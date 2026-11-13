@@ -47,7 +47,7 @@ hl.window_rule({
     match = { class = "^updates-float$" },
 
     float  = true,
-    size   = "800 500",
+    size   = "1000 625",
     center = true,
 })
 
