@@ -102,7 +102,7 @@ awww img ~/Pictures/Wallpapers/Leva-simple.png
 - **GTK apps**: `adw-gtk3-dark` theme and global dark mode (change it with `nwg-look`).
 - **Qt/KDE apps** (Dolphin, Ark): dark Breeze through `qt6ct`.
 - **Terminal**: kitty with the Tokyo Night theme, a semi-transparent background and the CaskaydiaCove Nerd Font.
-- **Launcher**: rofi with the themes from [adi1090x/rofi](https://github.com/adi1090x/rofi) (`Configs/.config/rofi/`), using the `type-7` style. The powermenus from the same repo are in `rofi/powermenu/` (`type-1` to `type-6`, adapted to Hyprland: lock with hypridle, log out with hyprshutdown). `Super + M` and the ⏻ button open `type-4` with `style-1` (`powerMenu` in `hypr/conf/vars.lua` and `custom/power` in waybar). Try others with `~/.config/rofi/powermenu/type-N/powermenu.sh`; the style is the `theme=` line inside. Their icon font (Feather) is in `Assets/Fonts/`, linked to `~/.local/share/fonts` by `link.sh`.
+- **Launcher**: rofi with the themes from [adi1090x/rofi](https://github.com/adi1090x/rofi) (`Configs/.config/rofi/`), using `type-4` with `style-7` (`menu` in `hypr/conf/vars.lua`). The powermenus from the same repo are in `rofi/powermenu/` (`type-1` to `type-6`, adapted to Hyprland: lock with hypridle, log out with hyprshutdown). `Super + M` and the ⏻ button open `type-4` with `style-1` (`powerMenu` in `hypr/conf/vars.lua` and `custom/power` in waybar). Try others with `~/.config/rofi/powermenu/type-N/powermenu.sh`; the style is the `theme=` line inside. Their icon font (Feather) is in `Assets/Fonts/`, linked to `~/.local/share/fonts` by `link.sh`.
 
 ## Default apps
 
