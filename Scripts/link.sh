@@ -27,10 +27,12 @@ link() {
     echo "link    $dest -> $src"
 }
 
-# Everything in Configs/ (except .config) goes directly to ~/  (e.g. .zshrc)
+# Everything in Configs/ (except .config and etc) goes directly to ~/  (e.g. .zshrc)
+# Configs/etc holds system files: install.sh copies them to /etc as root, they are not linked
 for src in "$DOTFILES"/Configs/.[!.]* "$DOTFILES"/Configs/*; do
     [ -e "$src" ] || continue
     [ "$(basename "$src")" = ".config" ] && continue
+    [ "$(basename "$src")" = "etc" ] && continue
     link "$src" "$HOME/$(basename "$src")"
 done
 

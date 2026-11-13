@@ -94,6 +94,13 @@ git config --global interactive.diffFilter "delta --color-only"
 git config --global delta.navigate true
 git config --global merge.conflictStyle zdiff3
 
+# System files: Configs/etc/<path> is copied to /etc/<path> (root-owned copies, not symlinks:
+# they are read before login and must not depend on the home directory). Run again after editing them.
+# zram-generator.conf: compressed swap in RAM, active after reboot
+(cd "$DOTFILES/Configs/etc" && find . -type f) | while read -r f; do
+    sudo install -Dm644 "$DOTFILES/Configs/etc/$f" "/etc/${f#./}"
+done
+
 # Enable GUI login (SDDM). Only one display manager can be enabled,
 # so disable the one a previous install left (gdm, lightdm...)
 dm=$(readlink /etc/systemd/system/display-manager.service)
