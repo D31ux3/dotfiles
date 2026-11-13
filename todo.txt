@@ -96,7 +96,8 @@ Orden recomendado:
 =====================================================================
 6. EL REPO
 =====================================================================
-[ ] readme.md en "WIP": documentar atajos y pasos manuales
+[x] readme.md en "WIP": documentar atajos y pasos manuales
+    - README.md como presentación; documentación detallada en docs/
 [x] install.sh instala paquetes uno a uno (lento, oculta errores)
     -> pacman -S --needed - < pkglist.txt
     - Elegido: todo en una transacción; si falla, reintenta uno a uno (un paquete roto no bloquea el resto)
