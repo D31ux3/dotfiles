@@ -46,7 +46,7 @@ Orden recomendado:
 [x] Teclado: kb_layout "us" -> añadir us(intl) o es con atajo para cambiar
     - Elegido: us altgr-intl (teclado físico americano): AltGr + n = ñ, AltGr + a = á
 [x] SUPER + M cierra Hyprland sin confirmar -> usar el menú de apagado
-    - SUPER + M y el botón de waybar abren hypr/scripts/power-menu.sh (lock, suspend, log out, reboot, shutdown)
+    - SUPER + M y el botón de waybar abren rofi/powermenu/type-4 (style-1) (lock, suspend, log out, reboot, shutdown)
 
 =====================================================================
 3. DESARROLLO DE SOFTWARE

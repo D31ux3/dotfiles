@@ -110,3 +110,13 @@ hl.layer_rule({
 
     blur = false,
 })
+
+hl.layer_rule({
+    -- Blur behind rofi menus (launcher, powermenu...): their backgrounds are mostly
+    -- transparent and unreadable over the wallpaper without it
+    name  = "rofi-blur",
+    match = { namespace = "rofi" },
+
+    blur        = true,
+    ignore_alpha = 0,
+})
