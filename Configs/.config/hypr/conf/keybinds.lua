@@ -21,7 +21,7 @@ hl.bind(key("SHIFT + F"), hl.dsp.window.fullscreen())
 hl.bind(key("P"), hl.dsp.window.pin())    -- floating only: follows you across workspaces
 hl.bind(key("C"), hl.dsp.window.center()) -- floating only
 hl.bind(key("L"), hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
-hl.bind(key("V"), hl.dsp.exec_cmd("cliphist list | rofi -dmenu -p clipboard | cliphist decode | wl-copy"))
+hl.bind(key("V"), hl.dsp.exec_cmd("~/.config/hypr/scripts/clipboard.sh"))
 
 -- Screenshots: Print = region to clipboard, mainMod + Print = full screen to clipboard and opened in satty (not saved)
 hl.bind("Print",        hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
