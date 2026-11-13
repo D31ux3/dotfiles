@@ -1,5 +1,6 @@
 ttf-font-awesome-4
 wlogout
+mpvpaper
 sddm-silent-theme
 visual-studio-code-bin
 claude-code

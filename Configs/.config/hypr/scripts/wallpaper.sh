@@ -25,3 +25,6 @@ fi
 if [ ! -f "$HOME/.config/waybar/colors/colors.css" ]; then
     ~/.config/hypr/scripts/set-wallpaper.sh --colors
 fi
+
+# A video wallpaper plays on top of awww (which shows one of its frames): start it again
+~/.config/hypr/scripts/set-wallpaper.sh --restore
