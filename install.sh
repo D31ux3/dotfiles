@@ -50,6 +50,13 @@ fi
 # Link configuration files and wallpapers (symlinks, see link.sh)
 "$DOTFILES/Scripts/link.sh"
 
+# VS Code extensions (theme, icons, formatter... used by the versioned settings.json).
+# Update the list with: code --list-extensions > vscode-extensions.txt
+while read -r ext || [ -n "$ext" ]; do
+    [ -z "$ext" ] && continue
+    code --install-extension "$ext" || echo "Failed to install extension: $ext"
+done < "$DOTFILES/vscode-extensions.txt"
+
 # Dolphin only applies the KDE color scheme on startup when one is set explicitly;
 # with "Default" it mixes the qt6ct palette and kdeglobals (light background, light text)
 kwriteconfig6 --file dolphinrc --group UiSettings --key ColorScheme BreezeDark

@@ -38,8 +38,13 @@ done
 # so ~/.config stays a regular directory for other programs
 for src in "$DOTFILES"/Configs/.config/.[!.]* "$DOTFILES"/Configs/.config/*; do
     [ -e "$src" ] || continue
+    # VS Code keeps cache, history and workspace data in ~/.config/Code: only its settings are linked (below)
+    [ "$(basename "$src")" = "Code" ] && continue
     link "$src" "$HOME/.config/$(basename "$src")"
 done
+
+# VS Code settings (extensions are installed by install.sh from vscode-extensions.txt)
+link "$DOTFILES/Configs/.config/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"
 
 # Wallpapers (set when Hyprland starts, see ~/.config/hypr/scripts/wallpaper.sh)
 link "$DOTFILES/Assets/Pictures/Wallpapers" "$HOME/Pictures/Wallpapers"

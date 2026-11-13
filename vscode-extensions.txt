@@ -1,0 +1,10 @@
+anthropic.claude-code
+dbaeumer.vscode-eslint
+esbenp.prettier-vscode
+formulahendry.auto-rename-tag
+golang.go
+pkief.material-icon-theme
+robbowen.synthwave-vscode
+shd101wyy.markdown-preview-enhanced
+unthrottled.doki-theme
+usernamehw.errorlens

@@ -1,0 +1,11 @@
+{
+      "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+      "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono'",
+    "git.enableSmartCommit": true,
+    "files.autoSave": "afterDelay",
+    "workbench.colorTheme": "SynthWave '84",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  }

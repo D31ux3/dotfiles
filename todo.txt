@@ -61,10 +61,11 @@ Orden recomendado:
     - Elegido: + ripgrep, tealdeer como tldr; sin direnv (lo hace mise con [env]); htop se queda; cat = bat
 [x] Zsh: zsh-autosuggestions, zsh-syntax-highlighting, definir EDITOR/VISUAL
     - Elegido: plugins con pacman (source en .zshrc); EDITOR = code --wait (nano sin sesión gráfica)
-[ ] VS Code en Wayland:
+[x] VS Code en Wayland:
     - ELECTRON_OZONE_PLATFORM_HINT=auto en env.lua
     - code-flags.conf con --password-store=gnome-libsecret
     - versionar settings.json de VS Code
+    - Solo se enlaza Code/User/settings.json; extensiones en vscode-extensions.txt (install.sh las instala)
 
 =====================================================================
 4. DESARROLLO DE VIDEOJUEGOS
