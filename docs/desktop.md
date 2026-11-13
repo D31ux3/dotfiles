@@ -31,6 +31,7 @@ Hyprland also starts: waybar, notifications (swaync), hypridle, USB automount, t
 | Left | Clock | Click: full date. Tooltip: calendar (scroll to change month, right click for the year view) |
 | Center | Workspaces | Click to go to one, scroll for the next |
 | Right | Tray | Icons of background apps |
+| Right | Updates | Only visible when there are updates (pacman or AUR). Click: summary in a terminal. Right click: check again |
 | Right | Volume | Click: mixer (pavucontrol). Right click: mute. Scroll: volume |
 | Right | Network | Click: network menu (see below) |
 | Right | Battery | Changes color below 30 % (warning) and 15 % (critical) |
@@ -43,6 +44,10 @@ Hyprland also starts: waybar, notifications (swaync), hypridle, USB automount, t
 ### Network menu
 
 A rofi menu (`waybar/scripts/network-menu.sh`) built on NetworkManager: turn Wi-Fi on or off, list networks with their signal strength and whether they need a password, connect (asks for the password when needed) and open the advanced settings. Clicking again while it is open closes it.
+
+### Updates
+
+`waybar/scripts/updates.sh` checks every 30 minutes with `checkupdates` (official repos, without touching the system database) and `yay -Qua` (AUR). The click opens a floating kitty window that checks again and shows the pending count and state per manager, the total and the list of packages with their old and new version, then asks whether to update (`yay -Syu`, which covers both). The icon refreshes when it finishes. To refresh the icon right after updating (e.g. from a shell alias): `pkill -RTMIN+8 waybar`.
 
 ## Idle, lock and suspend
 

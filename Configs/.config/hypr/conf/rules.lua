@@ -42,6 +42,16 @@ hl.window_rule({
 })
 
 hl.window_rule({
+    -- Waybar updates summary (waybar/scripts/updates.sh)
+    name  = "updates-float",
+    match = { class = "^updates-float$" },
+
+    float  = true,
+    size   = "800 500",
+    center = true,
+})
+
+hl.window_rule({
     name  = "satty-float",
     match = { class = "com.gabm.satty"},
     
