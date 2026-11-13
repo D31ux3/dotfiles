@@ -5,6 +5,7 @@
 # screen whatever port it is plugged into. The file is per machine and not versioned.
 # Runs on Hyprland start and when a monitor is plugged in (conf/autostart.lua).
 
+import fcntl
 import json
 import os
 import subprocess
@@ -38,18 +39,21 @@ monitors = json.loads(subprocess.run(
     ["hyprctl", "monitors", "all", "-j"], capture_output=True, text=True, check=True
 ).stdout)
 
-try:
-    with open(RULES) as f:
-        current = f.read()
-except FileNotFoundError:
-    current = HEADER
-
-new = [m for m in monitors
-       if not m["disabled"] and lua_string("desc:" + m["description"]) not in current]
+# Several copies can run at once (startup plus one monitor.added per screen), so the
+# file is locked while it is read and only appended to, never rewritten.
+with open(RULES, "a+") as f:
+    fcntl.flock(f, fcntl.LOCK_EX)
+    f.seek(0)
+    current = f.read()
+    new = [m for m in monitors
+           if not m["disabled"] and lua_string("desc:" + m["description"]) not in current]
+    if new:
+        if not current:
+            f.write(HEADER)
+        f.write("".join(rule(m) for m in new))
+        f.flush()
 
 if new:
-    with open(RULES, "w") as f:
-        f.write(current + "".join(rule(m) for m in new))
     subprocess.run(["hyprctl", "reload"], stdout=subprocess.DEVNULL)
     names = ", ".join(m["name"] for m in new)
     subprocess.run(["notify-send", "Monitors", f"Detected {names}. Configure in ~/.config/hypr/conf/monitors_local.lua"])
