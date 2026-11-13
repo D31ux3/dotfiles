@@ -19,7 +19,7 @@ If a config has errors, `hyprctl configerrors` shows the file and line. Hyprland
 
 ## Login
 
-**SDDM** is the login screen and starts Hyprland by default. Logging in unlocks **gnome-keyring**, where VS Code, `gh`, the browser and Discord store their passwords and tokens.
+**SDDM** is the login screen and starts Hyprland by default. Its theme is [SilentSDDM](https://github.com/uiriansan/SilentSDDM) (AUR `sddm-silent-theme`, enabled in `Configs/etc/sddm.conf.d/silent.conf`); change its preset with `~/.config/hypr/scripts/sddm-preset.sh`: a rofi list of the presets, each one previewed full screen before applying it (asks for the password). The choice is saved in `/etc/sddm-silent-preset` and in `Configs/etc/sddm-silent-preset`, and a pacman hook sets it again after theme updates. Logging in unlocks **gnome-keyring**, where VS Code, `gh`, the browser and Discord store their passwords and tokens.
 
 Hyprland also starts: waybar, notifications (swaync), hypridle, USB automount, the wallpaper, the polkit agent (password prompts), clipboard history and monitor detection.
 

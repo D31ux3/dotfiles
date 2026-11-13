@@ -98,9 +98,16 @@ git config --global merge.conflictStyle zdiff3
 # they are read before login and must not depend on the home directory). Run again after editing them.
 # zram-generator.conf: compressed swap in RAM, active after reboot
 # docker/daemon.json: Docker does not drop other forwarded traffic (the VMs' network)
+# sddm.conf.d/silent.conf: SilentSDDM login theme
+# sddm-silent-preset + pacman.d/hooks/sddm-silent-preset.hook: its preset (hypr/scripts/sddm-preset.sh), kept on updates
 (cd "$DOTFILES/Configs/etc" && find . -type f) | while read -r f; do
     sudo install -Dm644 "$DOTFILES/Configs/etc/$f" "/etc/${f#./}"
 done
+# The hook only runs on later updates: set the saved preset now
+preset=$(cat /etc/sddm-silent-preset 2>/dev/null)
+if [ -f "/usr/share/sddm/themes/silent/configs/$preset.conf" ]; then
+    sudo sed -i "s|^ConfigFile=.*|ConfigFile=configs/$preset.conf|" /usr/share/sddm/themes/silent/metadata.desktop
+fi
 
 # Enable GUI login (SDDM). Only one display manager can be enabled,
 # so disable the one a previous install left (gdm, lightdm...)

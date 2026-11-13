@@ -1,0 +1,12 @@
+# Updates of sddm-silent-theme bring back its default metadata.desktop: set the preset
+# chosen with ~/.config/hypr/scripts/sddm-preset.sh (saved in /etc/sddm-silent-preset) again
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = sddm-silent-theme
+
+[Action]
+Description = Restoring the SilentSDDM preset...
+When = PostTransaction
+Exec = /bin/sh -c 'p=$(cat /etc/sddm-silent-preset 2>/dev/null); [ -f "/usr/share/sddm/themes/silent/configs/$p.conf" ] && sed -i "s|^ConfigFile=.*|ConfigFile=configs/$p.conf|" /usr/share/sddm/themes/silent/metadata.desktop; true'
