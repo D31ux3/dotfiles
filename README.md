@@ -1,19 +1,19 @@
 # dotfiles
 
-Entorno de escritorio completo sobre **Arch Linux + Hyprland**, pensado para desarrollar software, hacer videojuegos y jugar. Un solo script deja un sistema recién instalado listo para usar: paquetes, drivers, configuración y servicios.
+A complete desktop environment on **Arch Linux + Hyprland**, built for software development, game development and gaming. A single script turns a fresh install into a ready-to-use system: packages, drivers, configuration and services.
 
-## Qué incluye
+## What's included
 
-- **Escritorio Hyprland** (configuración en Lua) con waybar, rofi, notificaciones, bloqueo y suspensión por inactividad, menú de apagado y detección automática de monitores.
-- **Drivers de GPU automáticos**: detecta Intel, AMD y NVIDIA (incluidas las ramas antiguas y los portátiles híbridos) e instala lo que corresponde.
-- **Terminal**: kitty + zsh con autosugerencias, resaltado de sintaxis, starship, fzf, zoxide, bat, eza y ripgrep.
-- **Desarrollo**: C/C++ (clang, cmake, ninja), mise para versiones de lenguajes, .NET, Docker, Git con LFS y delta, y VS Code configurado para Wayland.
-- **Juegos**: Steam, Lutris, Proton-GE, gamemode, MangoHud, gamescope, mandos de Xbox por Bluetooth, y Hyprland ajustado (tearing, VRR, sin transparencias ni bloqueos en mitad de una partida).
-- **Arte y audio**: Krita y Audacity.
+- **Hyprland desktop** (Lua config) with waybar, rofi, notifications, idle lock and suspend, a power menu and automatic monitor detection.
+- **Automatic GPU drivers**: detects Intel, AMD and NVIDIA (including legacy branches and hybrid laptops) and installs the right ones.
+- **Terminal**: kitty + zsh with autosuggestions, syntax highlighting, starship, fzf, zoxide, bat, eza and ripgrep.
+- **Development**: C/C++ (clang, cmake, ninja), mise for language versions, .NET, Docker, Git with LFS and delta, and VS Code set up for Wayland.
+- **Gaming**: Steam, Lutris, Proton-GE, gamemode, MangoHud, gamescope, Xbox controllers over Bluetooth, and a tuned Hyprland (tearing, VRR, no transparency or screen lock mid-game).
+- **Art and audio**: Krita and Audacity.
 
-## Instalación rápida
+## Quick install
 
-Sobre una instalación base de Arch Linux:
+On a base Arch Linux install:
 
 ```bash
 sudo pacman -S --needed git base-devel
@@ -21,15 +21,17 @@ git clone https://github.com/d31ux3/dotfiles.git ~/dotfiles
 ~/dotfiles/install.sh
 ```
 
-Al terminar, reinicia. Los detalles y los pasos manuales están en [docs/instalacion.md](docs/instalacion.md).
+Reboot when it finishes. Details and manual steps are in [docs/instalacion.md](docs/instalacion.md).
 
-## Documentación
+## Documentation
 
-| Documento | Contenido |
+The detailed documentation is in Spanish.
+
+| Document | Contents |
 |---|---|
-| [Instalación](docs/instalacion.md) | Qué hace `install.sh` paso a paso y lo que queda por hacer a mano |
-| [Atajos de teclado](docs/atajos.md) | Todos los atajos de Hyprland y de la terminal |
-| [Escritorio](docs/escritorio.md) | Waybar, menús, inactividad, monitores, capturas, portapapeles, teclado |
-| [Terminal y desarrollo](docs/terminal-y-desarrollo.md) | zsh, alias, herramientas, Git, mise, Docker, VS Code |
-| [Juegos](docs/juegos.md) | Herramientas, mandos, ajustes de Hyprland y cómo lanzar los juegos |
-| [Estructura del repo](docs/estructura.md) | Cómo está organizado y cómo añadir paquetes o configuraciones |
+| [Installation](docs/instalacion.md) | What `install.sh` does step by step, and what is left to do by hand |
+| [Keybindings](docs/atajos.md) | Every Hyprland and terminal shortcut |
+| [Desktop](docs/escritorio.md) | Waybar, menus, idle behavior, monitors, screenshots, clipboard, keyboard |
+| [Terminal and development](docs/terminal-y-desarrollo.md) | zsh, aliases, tools, Git, mise, Docker, VS Code |
+| [Gaming](docs/juegos.md) | Tools, controllers, Hyprland tweaks and how to launch games |
+| [Repo structure](docs/estructura.md) | How it is organized and how to add packages or configs |
