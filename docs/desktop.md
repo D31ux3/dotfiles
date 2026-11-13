@@ -86,7 +86,7 @@ awww img ~/Pictures/Wallpapers/Leva-simple.png
 
 ## Clipboard
 
-**cliphist** keeps a history of everything you copy (text and images). `Super + V` opens it in rofi (`hypr/scripts/clipboard.sh`, launcher `type-2` with `style-1`); the entry you pick goes back to the clipboard. Pressing it again closes it.
+**cliphist** keeps a history of everything you copy (text and images). `Super + V` opens it in rofi (`hypr/scripts/clipboard.sh`, launcher `type-2` with `style-1`); the entry you pick goes back to the clipboard. Pressing it again closes it. The **Clear** button next to the search (or `Alt + Delete`) wipes the whole history and what is copied now.
 
 ## Keyboard and input
 
