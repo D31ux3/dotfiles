@@ -3,7 +3,7 @@
 # awww remembers the last wallpaper; the default one is only set the first time.
 # The desktop colors come from the wallpaper (matugen); they are generated here if missing.
 
-DEFAULT_WALLPAPER="$HOME/Pictures/Wallpapers/Lucy-rain.png"
+DEFAULT_WALLPAPER="$HOME/Pictures/Wallpapers/GirlsFrontline/Leva-simple.png"
 CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/awww"
 
 pgrep -x awww-daemon >/dev/null || awww-daemon &

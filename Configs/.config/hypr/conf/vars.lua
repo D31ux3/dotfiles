@@ -7,7 +7,7 @@ local vars = {
     menu        = "~/.config/rofi/launchers/type-4/launcher.sh",
     powerMenu   = "~/.config/hypr/scripts/power-menu.sh",
     mainMod     = "SUPER",
-    wallpaper   = "~/Pictures/Wallpapers/Lucy-rain.png",
+    wallpaper   = "~/Pictures/Wallpapers/GirlsFrontline/Leva-simple.png",
 }
 
 return vars

@@ -72,7 +72,7 @@ The lock screen is **hyprlock** (`Super + L` or from the power menu).
 
 ## Wallpaper and colors
 
-Set by **awww** through `scripts/wallpaper.sh`. Wallpapers live in `Assets/Pictures/Wallpapers/` (linked to `~/Pictures/Wallpapers`). The first time it uses `Lucy-rain.png`; after that awww remembers the last one you set.
+Set by **awww** through `scripts/wallpaper.sh`. Wallpapers live in `Assets/Pictures/Wallpapers/` (linked to `~/Pictures/Wallpapers`). The first time it uses `GirlsFrontline/Leva-simple.png`; after that awww remembers the last one you set.
 
 `Super + W` opens a grid of the wallpapers, subfolders included (`scripts/set-wallpaper.sh`, or `set-wallpaper.sh <file>`). Videos (`.mp4`, `.webm`, `.mkv`, `.mov`) play with **mpvpaper** on every monitor, looping, muted and paused while windows cover them; one of their frames (cached in `~/.cache/wallpaper/`) is the thumbnail, the source of the colors and the lock screen background. The last wallpaper is remembered, so a video starts again after a reboot. Setting one also **recolors the desktop** with [matugen](https://github.com/InioX/matugen), which builds a Material You palette from the image: waybar, notifications, the power menu, rofi, the window borders, the lock screen and kitty, including its 16 terminal colors: Tokyo Night's red, green, yellow, blue, magenta and cyan blended toward the wallpaper (`custom_colors` in `config.toml`), which the starship prompt also uses. Battery, CPU and other states keep green, yellow and red.
 
