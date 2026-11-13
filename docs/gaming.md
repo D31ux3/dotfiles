@@ -43,7 +43,7 @@ In `hypr/conf/look.lua` and `hypr/conf/rules.lua`:
 
 - **What counts as a game**: Steam game windows (`steam_app_<number>`), gamescope windows and windows that declare themselves a game.
 - **Tearing allowed**: games are shown without waiting for vsync, for lower input latency.
-- **Always opaque**: games, Steam and Godot ignore window transparency (tools launched from Steam keep their own window class, so they are listed one by one in `rules.lua`).
+- **Always opaque**: games, Steam, Godot and Blender ignore window transparency (tools launched from Steam keep their own window class, so they are listed one by one in `rules.lua`).
 - **No lock or suspend**: while a game has focus or something is fullscreen (see [Desktop](desktop.md#idle-lock-and-suspend)).
 - **VRR** (FreeSync / G-Sync): in fullscreen, if the monitor supports it.
 

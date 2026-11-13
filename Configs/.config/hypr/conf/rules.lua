@@ -80,7 +80,7 @@ hl.window_rule({
     -- Steam and apps where transparency gets in the way (game editor, also its running game).
     -- Tools launched from Steam keep their own class, not steam_app_<id>, so they are listed here
     name  = "opaque-apps",
-    match = { class = "^(steam|Godot)$" },
+    match = { class = "^(steam|Godot|blender)$" },
 
     opacity = "1 override",
 })

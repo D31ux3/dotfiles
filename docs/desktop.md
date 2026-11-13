@@ -93,7 +93,7 @@ awww img ~/Pictures/Wallpapers/Leva-simple.png
 
 ## Look
 
-- **Windows**: cyan-green gradient borders, rounded corners, transparency (95 % for the active window, 85 % for the rest) and blur. Games, Steam and Godot are always opaque.
+- **Windows**: cyan-green gradient borders, rounded corners, transparency (95 % for the active window, 85 % for the rest) and blur. Games, Steam, Godot and Blender are always opaque.
 - **GTK apps**: `adw-gtk3-dark` theme and global dark mode (change it with `nwg-look`).
 - **Qt/KDE apps** (Dolphin, Ark): dark Breeze through `qt6ct`.
 - **Terminal**: kitty with the Tokyo Night theme, a semi-transparent background and the CaskaydiaCove Nerd Font.
