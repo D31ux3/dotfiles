@@ -5,6 +5,16 @@
 # Options (scheme, which color of the image) are in set-wallpaper.sh and install.sh
 [config]
 
+# Terminal colors (kitty): Tokyo Night's hues, blended toward the wallpaper's colors.
+# Each one gives {{colors.<name>.default.hex}} plus on_<name>, <name>_container and on_<name>_container
+[config.custom_colors]
+red     = { color = "#f7768e", blend = true }
+green   = { color = "#9ece6a", blend = true }
+yellow  = { color = "#e0af68", blend = true }
+blue    = { color = "#7aa2f7", blend = true }
+magenta = { color = "#bb9af7", blend = true }
+cyan    = { color = "#7dcfff", blend = true }
+
 [templates.waybar]
 input_path  = '~/.config/matugen/templates/waybar.css'
 output_path = '~/.config/waybar/colors/colors.css'

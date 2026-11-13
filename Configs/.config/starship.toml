@@ -96,26 +96,27 @@ continuation_prompt = '▶▶ '
 # success_symbol = "[  ]($bold fg:#f8f8f2)"
 # error_symbol = "[ ➤ ]($bold fg:#fb4934)"
 
+# Colors are terminal color names, so the prompt follows kitty's colors (from the wallpaper, matugen)
 [directory]
 disabled = false
-format = "[$path](bold fg:#8be9fd)"
+format = "[$path](bold cyan)"
 truncate_to_repo = false
 # home_symbol = "" 
 
 [git_branch]
-format = " [  $branch](fg:#9198a1)"
+format = " [  $branch](bright-black)"
 
 [git_status]
 ahead = '⇡${count}'
 behind = '⇣${count}'
 diverged = '⇕⇡${ahead_count}⇣${behind_count}'
-format = '[[( $all_status$ahead_behind )](fg:#769ff0)]($style)'
-style = "bg:#394260"
+format = '[[( $all_status$ahead_behind )](blue)]($style)'
+style = "bg:black"
 
 
 [time]
 disabled = false
-format = '[[  $time ](fg:#a0a9cb )]($style)'
+format = '[[  $time ](white)]($style)'
 time_format = "%R"                            # Hour:Minute Format
 
 [deno]
