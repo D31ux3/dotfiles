@@ -23,7 +23,7 @@ dotfiles/
 │   │   ├── Code/User/settings.json
 │   │   └── ...
 │   └── etc/                → copied to /etc (system files)
-├── Assets/Pictures/Wallpapers/  → ~/Pictures/Wallpapers
+├── Assets/Pictures/       → each folder to ~/Pictures/<name> (Wallpapers, pfp)
 └── docs/                   This documentation
 ```
 

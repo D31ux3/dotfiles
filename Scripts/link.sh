@@ -48,8 +48,12 @@ done
 # VS Code settings (extensions are installed by install.sh from vscode-extensions.txt)
 link "$DOTFILES/Configs/.config/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"
 
-# Wallpapers (set when Hyprland starts, see ~/.config/hypr/scripts/wallpaper.sh)
-link "$DOTFILES/Assets/Pictures/Wallpapers" "$HOME/Pictures/Wallpapers"
+# Each folder in Assets/Pictures goes to ~/Pictures/<name>: Wallpapers (set when Hyprland starts,
+# see ~/.config/hypr/scripts/wallpaper.sh), pfp... Linked one by one so ~/Pictures stays a regular directory
+for src in "$DOTFILES"/Assets/Pictures/*; do
+    [ -e "$src" ] || continue
+    link "$src" "$HOME/Pictures/$(basename "$src")"
+done
 
 # Fonts that are not packaged (put them in Assets/Fonts).
 # Linked one by one so ~/.local/share/fonts stays a regular directory
