@@ -67,6 +67,14 @@ Also installed:
 
 Docker with `compose` and `buildx`. It does not start at boot: it starts the first time you run a `docker` command. Your user is in the `docker` group, so no `sudo` is needed.
 
+
+## Virtual machines
+
+**virt-manager** with QEMU/KVM through libvirt. libvirt starts the first time something connects to it (opening virt-manager), not at boot. Your user is in the `libvirt` group, so virt-manager manages the system VMs (`QEMU/KVM` connection) without asking for a password.
+
+- **Network**: the VMs use libvirt's `default` NAT network (internet through the host), started automatically.
+- **UEFI and TPM**: `edk2-ovmf` and `swtpm` are installed, so Windows 11 works: when creating the VM, tick *Customize configuration before install*, pick the `OVMF_CODE.secboot` firmware and add a TPM (emulated, version 2.0).
+- **Docker and VMs at the same time**: by default Docker drops all forwarded traffic that is not its own, which leaves the VMs without internet while it runs. `Configs/etc/docker/daemon.json` sets `ip-forward-no-drop`, so it only adds its own rules and both work together.
 ## VS Code
 
 - Runs as **native Wayland** (not blurry when scaled) and stores tokens in **gnome-keyring**. This is set by `ELECTRON_OZONE_PLATFORM_HINT` in `hypr/conf/env.lua` and by `Configs/.config/code-flags.conf`.

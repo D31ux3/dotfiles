@@ -31,15 +31,15 @@ The repo works from any folder, but the `dots` zsh alias expects it at `~/dotfil
 9. **Installs the VS Code extensions** from `vscode-extensions.txt`.
 10. **Small tweaks**: dark theme in Dolphin, satty as the image viewer, Git with LFS and delta.
 11. **Copies the system files** from `Configs/etc/` to `/etc` (zram, for now).
-12. **Enables the services**: SDDM, NetworkManager, Bluetooth, power profiles, weekly SSD TRIM, weekly pacman cache cleanup and Docker (starts on first use).
-13. **Adds the user to the groups** `docker` and `gamemode`.
+12. **Enables the services**: SDDM, NetworkManager, Bluetooth, power profiles, weekly SSD TRIM, weekly pacman cache cleanup, Docker and libvirt (both start on first use), and the NAT network for virtual machines.
+13. **Adds the user to the groups** `docker`, `libvirt` and `gamemode`.
 14. **Prints a summary** of the packages that could not be installed, if any.
 
 The script is safe to run again: whatever is already installed or linked is skipped.
 
 ## After installing: manual steps
 
-1. **Reboot.** The groups (`docker`, `gamemode`), zram and the drivers apply on the next login.
+1. **Reboot.** The groups (`docker`, `libvirt`, `gamemode`), zram and the drivers apply on the next login.
 2. **Git identity.** `~/.gitconfig` is not in the repo because it holds your name and email:
    ```bash
    git config --global user.name "Your name"

@@ -127,6 +127,14 @@ docker
 docker-compose
 docker-buildx
 
+# --- Virtual machines ---
+qemu-desktop        # QEMU with KVM, graphics and USB passthrough
+libvirt             # manages the VMs (virt-manager talks to it)
+virt-manager        # GUI to create and run VMs
+dnsmasq             # DHCP/DNS for the VMs' NAT network (libvirt "default" network)
+edk2-ovmf           # UEFI firmware for the VMs
+swtpm               # virtual TPM (Windows 11)
+
 # --- Gaming ---
 steam
 gamemode

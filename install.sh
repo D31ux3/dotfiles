@@ -97,6 +97,7 @@ git config --global merge.conflictStyle zdiff3
 # System files: Configs/etc/<path> is copied to /etc/<path> (root-owned copies, not symlinks:
 # they are read before login and must not depend on the home directory). Run again after editing them.
 # zram-generator.conf: compressed swap in RAM, active after reboot
+# docker/daemon.json: Docker does not drop other forwarded traffic (the VMs' network)
 (cd "$DOTFILES/Configs/etc" && find . -type f) | while read -r f; do
     sudo install -Dm644 "$DOTFILES/Configs/etc/$f" "/etc/${f#./}"
 done
@@ -134,6 +135,13 @@ sudo systemctl enable paccache.timer
 # The docker group allows using it without sudo (applies after logging in again)
 sudo systemctl enable docker.socket
 sudo usermod -aG docker "$USER"
+# Virtual machines (virt-manager + QEMU/KVM). libvirtd starts on first use (socket).
+# The libvirt group lets virt-manager manage system VMs (qemu:///system) without a password
+sudo systemctl enable --now libvirtd.socket
+sudo usermod -aG libvirt "$USER"
+# NAT network for the VMs: start it now and on every boot (connecting starts libvirtd)
+sudo virsh net-autostart default >/dev/null
+sudo virsh net-start default >/dev/null 2>&1 || true   # fails if it is already running
 # gamemode (gamemoderun) changes the CPU governor and process priority only for the gamemode group
 sudo usermod -aG gamemode "$USER"
 
