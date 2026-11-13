@@ -2,8 +2,7 @@
     "position": "top",
     "margin-top": 3,
     "modules-left": [
-        "cpu",
-        "memory",
+        "group/stats",
         "clock"
     ],
     "modules-center": [
@@ -12,13 +11,25 @@
     "modules-right": [
         "tray",
         "custom/updates",
-        "pulseaudio",
-        "network",
-        "battery",
-        "power-profiles-daemon",
-        "custom/notification",
+        "group/controls",
         "custom/power"
     ],
+
+    // Groups: several modules drawn as a single pill (see style.css)
+    "group/stats": {
+        "orientation": "horizontal",
+        "modules": ["cpu", "memory"]
+    },
+    "group/controls": {
+        "orientation": "horizontal",
+        "modules": [
+            "network",
+            "pulseaudio",
+            "battery",
+            "power-profiles-daemon",
+            "custom/notification"
+        ]
+    },
 
     "cpu": {
         "interval": 5,
@@ -134,7 +145,7 @@
 
     "custom/notification": {
         "tooltip": true,
-        "format": "<span size='13pt'>{icon}</span>",
+        "format": "{icon}",
         "format-icons": {
         "notification": "󱅫",
         "none": "󰂜",

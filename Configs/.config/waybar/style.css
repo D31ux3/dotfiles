@@ -11,22 +11,42 @@ window#waybar {
     background: transparent;
 }
 
-/* base modules */
+/* pills: standalone modules and groups */
 #custom-power,
-#cpu,
-#memory,
 #clock,
 #workspaces,
+#custom-updates,
+#stats,
+#controls {
+    background: @bg;
+    color: @text;
+    margin: 0 6px;
+}
+
+#custom-power,
+#clock,
+#workspaces,
+#custom-updates {
+    padding: 4px 10px;
+}
+
+/* modules inside a group share its pill */
+#stats,
+#controls {
+    padding: 0 3px;
+}
+
+#cpu,
+#memory,
 #pulseaudio,
 #network,
 #battery,
 #power-profiles-daemon,
-#custom-updates,
 #custom-notification {
-    background: @bg;
+    background: transparent;
     color: @text;
-    padding: 4px 10px;
-    margin: 0 6px;
+    padding: 4px 7px;
+    margin: 0;
 }
 
 /* subtle hover */
@@ -128,13 +148,8 @@ window#waybar {
     color: @good;
 }
 
-/* notifications */
-#custom-notification {
-    font-size: 13px;
-}
-
 /* updates: hidden when there is nothing to update */
 #custom-updates {
     color: @warning;
-    font-size: 14px;
 }
+
