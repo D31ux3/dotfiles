@@ -112,10 +112,19 @@ hl.layer_rule({
 })
 
 hl.layer_rule({
-    -- Blur behind rofi menus (launcher, powermenu...): their backgrounds are mostly
+    -- Blur behind rofi menus (launcher, clipboard...): their backgrounds are mostly
     -- transparent and unreadable over the wallpaper without it
     name  = "rofi-blur",
     match = { namespace = "rofi" },
+
+    blur        = true,
+    ignore_alpha = 0,
+})
+
+hl.layer_rule({
+    -- Blur behind the wlogout power menu (scripts/power-menu.sh): its background is 80 % transparent
+    name  = "wlogout-blur",
+    match = { namespace = "logout_dialog" },
 
     blur        = true,
     ignore_alpha = 0,

@@ -51,7 +51,7 @@ link "$DOTFILES/Configs/.config/Code/User/settings.json" "$HOME/.config/Code/Use
 # Wallpapers (set when Hyprland starts, see ~/.config/hypr/scripts/wallpaper.sh)
 link "$DOTFILES/Assets/Pictures/Wallpapers" "$HOME/Pictures/Wallpapers"
 
-# Fonts that are not packaged (e.g. the Feather icons used by the rofi powermenus).
+# Fonts that are not packaged (put them in Assets/Fonts).
 # Linked one by one so ~/.local/share/fonts stays a regular directory
 for src in "$DOTFILES"/Assets/Fonts/*; do
     [ -e "$src" ] || continue
