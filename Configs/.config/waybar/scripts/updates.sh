@@ -81,9 +81,10 @@ state_color() {
 }
 
 rows() {
-    # $1 = prefix in the cache; prints aligned "name  old -> new"
+    # $1 = prefix in the cache; prints aligned "name  old -> new" (old in red, new in green)
     grep "^$1 " "$cache" | cut -d' ' -f2- \
-        | awk '{ printf "  %-30s %s -> %s\n", $1, $2, $4 }'
+        | awk -v r="$red" -v g="$green" -v x="$reset" \
+            '{ printf "  %-30s %s%s%s -> %s%s%s\n", $1, r, $2, x, g, $4, x }'
 }
 
 printf '%s%-9s %-8s %s%s\n' "$bold" "Manager" "Pending" "State" "$reset"
