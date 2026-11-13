@@ -102,3 +102,11 @@ zsh-autosuggestions
 zsh-syntax-highlighting
 krita
 audacity
+gamemode
+lib32-gamemode
+mangohud
+lib32-mangohud
+gamescope
+lutris
+wine-staging
+winetricks

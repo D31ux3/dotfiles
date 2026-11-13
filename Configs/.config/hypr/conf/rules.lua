@@ -59,6 +59,38 @@ hl.window_rule({
     center = true,
 })
 
+-- Games: Steam games (steam_app_<id>), anything run through gamescope,
+-- and windows that declare themselves a game (content-type, e.g. some native and Proton games)
+local games = {
+    { class = "^(steam_app_\\d+|gamescope)$" },
+    { content = "game" },
+}
+for i, match in ipairs(games) do
+    hl.window_rule({
+        name  = "game-" .. i,
+        match = match,
+
+        immediate    = true,          -- tearing allowed (general.allow_tearing), less input lag
+        opacity      = "1 override",  -- ignore active/inactive_opacity
+        idle_inhibit = "focus",       -- a controller does not count as activity for hypridle
+    })
+end
+
+hl.window_rule({
+    name  = "steam-opaque",
+    match = { class = "^steam$" },
+
+    opacity = "1 override",
+})
+
+hl.window_rule({
+    -- No dimming or suspend while something is fullscreen (videos, games, presentations)
+    name  = "fullscreen-idle-inhibit",
+    match = { class = ".*" },
+
+    idle_inhibit = "fullscreen",
+})
+
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/#layer-rules
 hl.layer_rule({
     name  = "waybar-blur",

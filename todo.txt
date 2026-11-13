@@ -79,14 +79,19 @@ Orden recomendado:
 =====================================================================
 5. JUGAR
 =====================================================================
-[ ] Herramientas: gamemode + lib32-gamemode, mangohud + lib32-mangohud, gamescope,
+[x] Herramientas: gamemode + lib32-gamemode, mangohud + lib32-mangohud, gamescope,
     protonup-qt (Proton-GE), lutris o heroic, wine-staging, winetricks
-[ ] Mandos: game-devices-udev, xpadneo (Xbox por bluetooth)
-[ ] Ajustes Hyprland:
+    - Elegido: lutris (repos oficiales); usuario en el grupo gamemode
+    - Por juego en Steam: opciones de lanzamiento "gamemoderun mangohud %command%" (prime-run en el portátil)
+[x] Mandos: game-devices-udev, xpadneo (Xbox por bluetooth)
+    - xpadneo-dkms: install.sh instala los headers de cada kernel
+[x] Ajustes Hyprland:
     - allow_tearing = true + regla "immediate" para juegos
     - inactive_opacity 0.85 afecta a juegos -> regla de opacidad 1 para pantalla completa y Steam/juegos
     - VRR si la pantalla lo soporta
     - hypridle no debe bloquear con pantalla completa o audio activo
+    - Juegos = clase steam_app_<id>, gamescope o content-type "game"; VRR = 2 (solo pantalla completa)
+    - idle_inhibit fullscreen para todas las ventanas; audio comprobado en scripts/should-idle.sh
 
 =====================================================================
 6. EL REPO

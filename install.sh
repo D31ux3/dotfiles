@@ -36,6 +36,11 @@ while read -r pkg || [ -n "$pkg" ]; do
     sudo pacman -S --needed --noconfirm "$pkg" || echo "Failed to install: $pkg"
 done < "$DOTFILES/pkglist.txt"
 
+# xpadneo-dkms (AUR) builds its module for every installed kernel, which needs its headers
+for k in $(pacman -Qq linux linux-lts linux-zen linux-hardened 2>/dev/null); do
+    sudo pacman -S --needed --noconfirm "$k-headers"
+done
+
 # Install AUR packages
 while read -r pkg || [ -n "$pkg" ]; do
     [ -z "$pkg" ] && continue
@@ -106,5 +111,7 @@ sudo systemctl enable paccache.timer
 # The docker group allows using it without sudo (applies after logging in again)
 sudo systemctl enable docker.socket
 sudo usermod -aG docker "$USER"
+# gamemode (gamemoderun) changes the CPU governor and process priority only for the gamemode group
+sudo usermod -aG gamemode "$USER"
 
 echo "reboot your system"

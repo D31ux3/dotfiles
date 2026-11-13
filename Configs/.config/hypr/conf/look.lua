@@ -13,7 +13,8 @@ hl.config({
         },
 
         resize_on_border = false,
-        allow_tearing    = false,
+        -- Lets windows with the "immediate" rule (games, see rules.lua) skip vsync: lower input latency
+        allow_tearing    = true,
 
         layout = "dwindle",
     },
@@ -62,6 +63,9 @@ hl.config({
     misc = {
         force_default_wallpaper = -1,
         disable_hyprland_logo   = false,
+        -- Variable refresh rate (FreeSync/G-Sync) only for fullscreen windows, on screens that support it;
+        -- always-on VRR makes the desktop flicker on some panels
+        vrr = 2,
     },
 })
 

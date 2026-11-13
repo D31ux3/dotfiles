@@ -3,3 +3,6 @@ visual-studio-code-bin
 claude-code
 claude-desktop
 brave-origin-bin
+protonup-qt
+game-devices-udev
+xpadneo-dkms
