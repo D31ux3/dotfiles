@@ -109,6 +109,10 @@ if [ -f "/usr/share/sddm/themes/silent/configs/$preset.conf" ]; then
     sudo sed -i "s|^ConfigFile=.*|ConfigFile=configs/$preset.conf|" /usr/share/sddm/themes/silent/metadata.desktop
 fi
 
+# Dual boot: copy the Windows boot files to /boot so systemd-boot lists Windows
+# (only needed when Windows is on another disk; does nothing when there is none)
+"$DOTFILES/Scripts/windows-boot.sh" || true
+
 # Enable GUI login (SDDM). Only one display manager can be enabled,
 # so disable the one a previous install left (gdm, lightdm...)
 dm=$(readlink /etc/systemd/system/display-manager.service)

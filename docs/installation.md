@@ -30,7 +30,7 @@ The repo works from any folder, but the `dots` zsh alias expects it at `~/dotfil
 8. **Links the configs** with `Scripts/link.sh` (see [Repo structure](structure.md)).
 9. **Installs the VS Code extensions** from `vscode-extensions.txt`.
 10. **Small tweaks**: dark theme in Dolphin, satty as the image viewer, Git with LFS and delta.
-11. **Copies the system files** from `Configs/etc/` to `/etc` (zram, for now).
+11. **Copies the system files** from `Configs/etc/` to `/etc` (zram, Docker, the SDDM theme and its preset hook), and **sets up dual boot**: with systemd-boot, if Windows is on another disk, `Scripts/windows-boot.sh` copies its boot files to `/boot` so it shows up in the systemd-boot menu.
 12. **Enables the services**: SDDM, NetworkManager, Bluetooth, power profiles, weekly SSD TRIM, weekly pacman cache cleanup, Docker and libvirt (both start on first use), and the NAT network for virtual machines.
 13. **Adds the user to the groups** `docker`, `libvirt` and `gamemode`.
 14. **Prints a summary** of the packages that could not be installed, if any.
@@ -49,6 +49,7 @@ The script is safe to run again: whatever is already installed or linked is skip
 4. **External monitors**: detected automatically the first time you plug them in and saved to `~/.config/hypr/conf/monitors_local.lua`. Adjust position, resolution or scale there (see [Desktop](desktop.md#monitors)).
 5. **Steam games**: set each game's launch options (see [Gaming](gaming.md#launching-a-game)).
 6. **Proton-GE**: open ProtonUp-Qt and install the latest version.
+7. **Windows (dual boot)**: if Windows is missing from the boot menu, or stops booting after a large Windows update, run `~/dotfiles/Scripts/windows-boot.sh` (asks for the password) to copy its boot files to `/boot` again.
 
 ## If something fails
 
