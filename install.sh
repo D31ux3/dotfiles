@@ -106,6 +106,7 @@ git config --global merge.conflictStyle zdiff3
 # zram-generator.conf: compressed swap in RAM, active after reboot
 # docker/daemon.json: Docker does not drop other forwarded traffic (the VMs' network)
 # sddm.conf.d/silent.conf: SilentSDDM login theme
+# X11/xorg.conf.d/10-no-secondary-gpu.conf: the login screen (Xorg) uses only the primary GPU; secondary ones can hang it on a black screen
 # sddm-silent-preset + pacman.d/hooks/sddm-silent-preset.hook: its preset (hypr/scripts/sddm-preset.sh), kept on updates
 (cd "$DOTFILES/Configs/etc" && find . -type f) | while read -r f; do
     sudo install -Dm644 "$DOTFILES/Configs/etc/$f" "/etc/${f#./}"

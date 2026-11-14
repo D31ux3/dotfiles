@@ -8,7 +8,6 @@ dotfiles/
 ├── pkglist.txt             Official packages, grouped in sections
 ├── aurlist.txt             AUR packages
 ├── vscode-extensions.txt   VS Code extensions
-├── todo.txt                Pending tasks for the environment
 ├── Scripts/
 │   ├── gpu-drivers.sh      Detects the GPU and installs its drivers
 │   └── link.sh             Links the configs into ~
@@ -48,7 +47,7 @@ Files in `Configs/etc/` are **copied** to `/etc` as root; they are not linked, b
 sudo install -Dm644 ~/dotfiles/Configs/etc/systemd/zram-generator.conf /etc/systemd/zram-generator.conf
 ```
 
-(or run `install.sh` again). For now it only holds the zram config (compressed swap in RAM).
+(or run `install.sh` again). It holds the zram config (compressed swap in RAM), the Docker and SDDM settings, and an Xorg config that keeps the login screen on the primary GPU only.
 
 ## Files not in the repo
 
