@@ -55,6 +55,7 @@ networkmanager
 network-manager-applet
 wpa_supplicant      # Wi-Fi backend used by NetworkManager
 wireless_tools
+proton-vpn-cli      # official Proton VPN CLI (protonvpn), connects through NetworkManager
 bluez
 bluez-utils
 blueman
