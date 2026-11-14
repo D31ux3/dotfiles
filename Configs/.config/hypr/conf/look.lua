@@ -18,7 +18,7 @@ hl.config({
 
         resize_on_border = false,
         -- Lets windows with the "immediate" rule (games, see rules.lua) skip vsync: lower input latency
-        allow_tearing    = true,
+        allow_tearing    = false,
 
         layout = "dwindle",
     },
