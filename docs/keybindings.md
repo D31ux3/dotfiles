@@ -4,6 +4,8 @@
 
 `Super` is the Windows key. Bindings are defined in `Configs/.config/hypr/conf/keybinds.lua`.
 
+**`Super + /` shows a searchable cheat sheet** of them (`hypr/scripts/cheatsheet.sh`). It is built from the running Hyprland, from each bind's `description` ("Category: text"), so a new bind shows up there once it has one.
+
 ## Apps
 
 | Shortcut | Action |
@@ -14,6 +16,7 @@
 | `Super + A` | App launcher (rofi). Press again to close it |
 | `Super + V` | Clipboard history |
 | `Super + W` | Pick a wallpaper (also recolors the desktop) |
+| `Super + /` | Keybinding cheat sheet |
 | `Super + M` | Power menu: lock, suspend, log out, reboot, shut down |
 | `Super + L` | Lock the screen |
 | `Super + R` | Restart waybar (if it hangs or after editing its config) |
