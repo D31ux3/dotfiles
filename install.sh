@@ -86,6 +86,9 @@ done < "$DOTFILES/vscode-extensions.txt"
 # with "Default" it mixes the qt6ct palette and kdeglobals (light background, light text)
 kwriteconfig6 --file dolphinrc --group UiSettings --key ColorScheme BreezeDark
 
+# Open folders with Dolphin: otherwise kitty, which also registers for folders, can win
+# (Steam's "Browse local files" and other apps open folders through xdg-open)
+xdg-mime default org.kde.dolphin.desktop inode/directory
 # Open images with satty (writes ~/.config/mimeapps.list)
 xdg-mime default satty.desktop image/png image/jpeg image/webp image/bmp
 

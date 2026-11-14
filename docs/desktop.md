@@ -124,4 +124,4 @@ Set by **awww** through `scripts/wallpaper.sh`. Wallpapers live in `Assets/Pictu
 | Screen recording | OBS Studio |
 | Editor | VS Code |
 
-Change them in `Configs/.config/hypr/conf/vars.lua`.
+Change them in `Configs/.config/hypr/conf/vars.lua` (keybindings). What other programs open through `xdg-open` (Steam's "Browse local files", downloads, links to folders) is set separately with `xdg-mime` in `install.sh`: folders with Dolphin, images with satty. Check one with `xdg-mime query default inode/directory`.
