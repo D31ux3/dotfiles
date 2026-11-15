@@ -33,9 +33,9 @@
         { "type": "display",  "key": "󰍹 Display", "compactType": "scaled-with-refresh-rate" },
 
         { "type": "custom", "format": "{#magenta}─── Hardware ────────────────────────" },
-        { "type": "cpu",      "key": " CPU",     "format": "{name} ({cores-logical})" },
+        { "type": "cpu",      "key": " CPU",     "format": "{name} ({cores-logical})" },
         { "type": "gpu",      "key": "󰢮 GPU",     "format": "{vendor} {name}" },
-        { "type": "memory",   "key": " Memory" },
+        { "type": "memory",   "key": " Memory" },
         { "type": "disk",     "key": "󰋊 Disk",    "folders": "/", "format": "{size-used} / {size-total} ({size-percentage})" },
         { "type": "battery",  "key": "󰁹 Battery" },
 
