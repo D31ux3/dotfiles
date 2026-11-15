@@ -109,8 +109,8 @@
     "pulseaudio#mic": {
         "format": "{format_source}",
         "format-muted": "{format_source}",
-        "format-source": "󰍬",
-        "format-source-muted": "󰍭",
+        "format-source": "{volume}% 󰍬",
+        "format-source-muted": "{volume}% 󰍭",
         "tooltip-format": "{desc}",
         "on-click": "pavucontrol -t 4",
         "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
