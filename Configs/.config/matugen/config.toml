@@ -35,6 +35,29 @@ output_path = '~/.config/swayosd/colors.css'
 # swayosd reads its CSS when it starts: restart it to apply the new colors
 post_hook   = 'pkill -x swayosd-server; (setsid swayosd-server >/dev/null 2>&1 &) || true'
 
+# GTK apps (pavucontrol, nautilus, nm-connection-editor, file dialogs...): gtk-3.0/gtk.css and
+# gtk-4.0/gtk.css import these. GTK 3 apps that are open reload them when the theme is set again;
+# GTK 4 apps only read them when they start
+[templates.gtk3]
+input_path  = '~/.config/matugen/templates/gtk3-colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook   = "gsettings set org.gnome.desktop.interface gtk-theme '' && gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' || true"
+
+[templates.gtk4]
+input_path  = '~/.config/matugen/templates/gtk4-colors.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+# KDE apps (Dolphin...): kdeglobals selects this scheme ([UiSettings] ColorScheme=Matugen).
+# They load it when they start: open ones keep their colors until restarted
+[templates.kde]
+input_path  = '~/.config/matugen/templates/kde-colors.colors'
+output_path = '~/.local/share/color-schemes/Matugen.colors'
+
+# Other Qt apps: qt6ct.conf points color_scheme_path here
+[templates.qt6ct]
+input_path  = '~/.config/matugen/templates/qt6ct-colors.conf'
+output_path = '~/.config/qt6ct/colors/matugen.conf'
+
 [templates.rofi]
 input_path  = '~/.config/matugen/templates/rofi.rasi'
 output_path = '~/.config/rofi/colors/matugen.rasi'

@@ -1,1 +1,3 @@
-/usr/share/themes/adw-gtk3-dark/gtk-4.0/gtk-dark.css
+/* Colors from the wallpaper: matugen writes colors.css (template: ~/.config/matugen/templates/gtk4-colors.css).
+   Read when an app starts: open apps keep their colors until restarted */
+@import url("colors.css");

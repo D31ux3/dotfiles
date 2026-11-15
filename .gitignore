@@ -3,6 +3,9 @@ Configs/.config/hypr/conf/monitors_local.lua
 Configs/.config/waybar/colors/colors.css
 Configs/.config/swaync/colors.css
 Configs/.config/swayosd/colors.css
+Configs/.config/gtk-3.0/colors.css
+Configs/.config/gtk-4.0/colors.css
+Configs/.config/qt6ct/colors/
 Configs/.config/wlogout/colors.css
 Configs/.config/rofi/colors/matugen.rasi
 Configs/.config/hypr/conf/colors.lua

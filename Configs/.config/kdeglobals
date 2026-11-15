@@ -157,3 +157,8 @@ activeForeground=252,252,252
 inactiveBackground=32,36,40
 inactiveBlend=161,169,177
 inactiveForeground=161,169,177
+
+# KDE apps load this color scheme when they start: matugen writes it from the wallpaper
+# (~/.local/share/color-schemes/Matugen.colors). The [Colors:*] sections above are the fallback
+[UiSettings]
+ColorScheme=Matugen
