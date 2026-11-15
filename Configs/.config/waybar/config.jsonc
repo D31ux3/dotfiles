@@ -9,6 +9,7 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
+        "custom/recording",
         "tray",
         "custom/updates",
         "group/controls",
@@ -168,6 +169,15 @@
             "wallpaper": "~/.config/hypr/scripts/set-wallpaper.sh",
             "keybinds": "~/.config/hypr/scripts/cheatsheet.sh"
         }
+    },
+
+    // Red dot while recording the screen (hypr/scripts/screenrecord.sh, mainMod + Shift + R),
+    // hidden otherwise. The script sends signal 10 when it starts and stops. Click: stop and save
+    "custom/recording": {
+        "exec": "~/.config/hypr/scripts/screenrecord.sh status",
+        "return-type": "json",
+        "signal": 10,
+        "on-click": "~/.config/hypr/scripts/screenrecord.sh"
     },
 
     "custom/notification": {

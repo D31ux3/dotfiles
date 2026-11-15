@@ -30,6 +30,7 @@ Hyprland also starts: waybar, notifications (swaync), the volume/brightness bubb
 | Left | CPU and memory | The memory tooltip also shows swap (zram) |
 | Left | Clock | Click: full date. Tooltip: calendar (scroll to change month, right click for the year view) |
 | Center | Workspaces | Click to go to one, scroll for the next |
+| Right | 󰑊 | Only while recording the screen. Click: stop and save |
 | Right | Tray | Icons of background apps |
 | Right | Updates | Only visible when there are updates (pacman or AUR). Click: summary in a terminal. Right click: check again |
 | Right | Network | Wi-Fi icon of nm-applet. Click: network menu (see below) |
@@ -100,6 +101,10 @@ Set by **awww** through `scripts/wallpaper.sh`. Wallpapers live in `Assets/Pictu
 - `Print`: select a region and it is copied to the clipboard.
 - `Super + Print`: captures the whole screen, copies it and opens it in **satty** to draw, crop or highlight. From satty you can save it or copy it again.
 - satty is also the default image viewer.
+
+### Screen recording
+
+`Super + Shift + R` (`scripts/screenrecord.sh`): drag a region, or click a monitor to record all of it. **gpu-screen-recorder** records at 60 fps with the desktop audio, encoding on the GPU (VA-API on Intel/AMD, NVENC on NVIDIA). While it records, a red dot shows in waybar; press the shortcut again or click the dot to stop. The video is saved to `~/Videos/Recordings/<date>_<time>.mp4` and a notification shows a thumbnail. Region selection and the thumbnail follow HyDE's `screenrecord.sh`.
 
 ## Clipboard
 

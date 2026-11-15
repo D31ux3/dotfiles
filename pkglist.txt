@@ -80,6 +80,7 @@ grim
 slurp
 satty               # annotate screenshots, default image viewer
 hyprpicker          # color picker (mainMod + Shift + C)
+gpu-screen-recorder # screen recording with the GPU (mainMod + Shift + R)
 wl-clipboard
 cliphist            # clipboard history
 

@@ -16,6 +16,7 @@
 | `Super + A` | App launcher (rofi). Press again to close it |
 | `Super + V` | Clipboard history |
 | `Super + W` | Pick a wallpaper (also recolors the desktop) |
+| `Super + Shift + R` | Record the screen with desktop audio: drag a region or click a monitor (Esc cancels). Press again, or click the red dot in waybar, to stop. Saved to `~/Videos/Recordings/` |
 | `Super + Shift + C` | Color picker: click a pixel to copy its hex code (with a zoom lens and a notification) |
 | `Super + /` | Keybinding cheat sheet |
 | `Super + M` | Power menu: lock, suspend, log out, reboot, shut down |

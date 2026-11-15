@@ -170,6 +170,18 @@ menu separator {
     color: @critical;
 }
 
+/* screen recording: a red pill, only while recording */
+#custom-recording {
+    background: @bg;
+    color: @critical;
+    margin: 0 6px;
+    padding: 4px 10px;
+}
+
+#custom-recording:hover {
+    background: @surface;
+}
+
 /* updates: hidden when there is nothing to update */
 #custom-updates {
     color: @warning;

@@ -31,6 +31,7 @@ hl.bind(key("C"), hl.dsp.window.center(), desc("Windows: Center a floating windo
 hl.bind(key("L"), hl.dsp.exec_cmd("pidof hyprlock || hyprlock"), desc("System: Lock the screen"))
 hl.bind(key("V"), hl.dsp.exec_cmd("~/.config/hypr/scripts/clipboard.sh"), desc("Apps: Clipboard history"))
 hl.bind(key("W"), hl.dsp.exec_cmd("~/.config/hypr/scripts/set-wallpaper.sh"), desc("Apps: Wallpaper (also recolors the desktop)"))
+hl.bind(key("SHIFT + R"), hl.dsp.exec_cmd("~/.config/hypr/scripts/screenrecord.sh"), desc("Screenshots: Record the screen (drag a region or click a monitor; again to stop)"))
 hl.bind(key("SHIFT + C"), hl.dsp.exec_cmd("pidof hyprpicker || hyprpicker -a -n -l -f hex"), desc("Apps: Color picker (hex to the clipboard)"))
 hl.bind(key("slash"), hl.dsp.exec_cmd("~/.config/hypr/scripts/cheatsheet.sh"), desc("System: This cheat sheet"))
 
