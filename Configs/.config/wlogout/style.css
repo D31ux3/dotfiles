@@ -22,8 +22,10 @@ button {
     margin: 10px;
 }
 
+/* Keyboard selection (arrow keys): a ring in the secondary accent instead of GTK's focus box */
 button:focus {
-    box-shadow: none;
+    outline: none;
+    box-shadow: inset 0 0 0 3px @accent2;
     background-size: 20%;
 }
 
