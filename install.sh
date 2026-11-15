@@ -83,8 +83,9 @@ while read -r ext || [ -n "$ext" ]; do
 done < "$DOTFILES/vscode-extensions.txt"
 
 # Dolphin only applies the KDE color scheme on startup when one is set explicitly;
-# with "Default" it mixes the qt6ct palette and kdeglobals (light background, light text)
-kwriteconfig6 --file dolphinrc --group UiSettings --key ColorScheme BreezeDark
+# with "Default" it mixes the qt6ct palette and kdeglobals (light background, light text).
+# Matugen: the scheme matugen writes from the wallpaper (~/.local/share/color-schemes/Matugen.colors)
+kwriteconfig6 --file dolphinrc --group UiSettings --key ColorScheme Matugen
 
 # Open folders with Dolphin: otherwise kitty, which also registers for folders, can win
 # (Steam's "Browse local files" and other apps open folders through xdg-open)
