@@ -122,6 +122,21 @@ menuitem:disabled {
     color: @muted;
 }
 
+/* Submenu arrow: the  label in menus/controls.xml, at the right edge; GTK's own arrow is hidden */
+menuitem arrow {
+    -gtk-icon-source: none;
+    min-width: 0;
+    min-height: 0;
+}
+
+menuitem .submenu-arrow {
+    color: @muted;
+}
+
+menuitem:hover .submenu-arrow {
+    color: @accent;
+}
+
 menu separator {
     background: @surface;
     min-height: 1px;

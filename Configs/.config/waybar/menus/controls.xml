@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Menu of custom/menu in waybar (left click). Each item's id is a key of "menu-actions" in
-     config.jsonc, which holds its command. Styled in style.css (menu, menuitem). -->
+     config.jsonc, which holds its command. Styled in style.css (menu, menuitem).
+     Items with a submenu hold two labels instead of a "label" property: the name, and the arrow
+     on the right edge (GTK's own arrow is hidden in style.css). -->
 <interface>
     <object class="GtkMenu" id="menu">
 
         <child>
             <object class="GtkMenuItem" id="power_menu">
-                <property name="label">󰓅&#x2003;Power profile</property>
+                <child>
+                    <object class="GtkBox">
+                        <property name="spacing">24</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">󰓅&#x2003;Power profile</property>
+                                <property name="xalign">0</property>
+                                <property name="hexpand">True</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">&#xf054;</property>
+                                <style><class name="submenu-arrow"/></style>
+                            </object>
+                        </child>
+                    </object>
+                </child>
                 <child type="submenu">
                     <object class="GtkMenu">
                         <child>
@@ -39,7 +58,24 @@
 
         <child>
             <object class="GtkMenuItem" id="brightness_menu">
-                <property name="label">󰃠&#x2003;Brightness</property>
+                <child>
+                    <object class="GtkBox">
+                        <property name="spacing">24</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">󰃠&#x2003;Brightness</property>
+                                <property name="xalign">0</property>
+                                <property name="hexpand">True</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">&#xf054;</property>
+                                <style><class name="submenu-arrow"/></style>
+                            </object>
+                        </child>
+                    </object>
+                </child>
                 <child type="submenu">
                     <object class="GtkMenu">
                         <child>
