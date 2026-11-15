@@ -24,6 +24,14 @@
                                 <property name="label">󰾆&#x2003;Power saver</property>
                             </object>
                         </child>
+                        <child>
+                            <object class="GtkSeparatorMenuItem"/>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="power-show">
+                                <property name="label">󰋽&#x2003;Show power profile</property>
+                            </object>
+                        </child>
                     </object>
                 </child>
             </object>

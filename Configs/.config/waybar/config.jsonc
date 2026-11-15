@@ -153,6 +153,7 @@
             "power-performance": "~/.config/waybar/scripts/controls-menu.sh power performance",
             "power-balanced": "~/.config/waybar/scripts/controls-menu.sh power balanced",
             "power-saver": "~/.config/waybar/scripts/controls-menu.sh power power-saver",
+            "power-show": "~/.config/waybar/scripts/controls-menu.sh power show",
             "brightness-up": "~/.config/waybar/scripts/controls-menu.sh brightness 10%+",
             "brightness-down": "~/.config/waybar/scripts/controls-menu.sh brightness 10%-",
             "brightness-100": "~/.config/waybar/scripts/controls-menu.sh brightness 100%",

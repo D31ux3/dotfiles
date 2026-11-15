@@ -1,8 +1,18 @@
 #!/bin/bash
 # Actions of the waybar controls menu (custom/menu, menus/controls.xml), with a notification as feedback:
-#   controls-menu.sh power <performance|balanced|power-saver>
+#   controls-menu.sh power <performance|balanced|power-saver|show>   (show: notify the active one)
 #   controls-menu.sh brightness <brightnessctl value: 10%+, 10%-, 50%...>
 # The notifications replace each other instead of stacking (swaync "synchronous" hint).
+
+# Active power profile, readable: "Balanced", "Power saver"...
+profile_name() {
+    case "$(powerprofilesctl get 2>/dev/null)" in
+        performance) echo "Performance" ;;
+        balanced)    echo "Balanced" ;;
+        power-saver) echo "Power saver" ;;
+        *)           echo "Unavailable" ;;
+    esac
+}
 
 notify() {  # notify <tag> <title> <body> [percent]
     local args=(-a "$2" -h "string:x-canonical-private-synchronous:$1")
@@ -12,8 +22,10 @@ notify() {  # notify <tag> <title> <body> [percent]
 
 case "$1" in
     power)
-        if powerprofilesctl set "$2"; then
-            notify power "Power profile" "$(powerprofilesctl get)"
+        if [ "$2" = show ]; then
+            notify power "Power profile" "$(profile_name)"
+        elif powerprofilesctl set "$2"; then
+            notify power "Power profile" "$(profile_name)"
         else
             notify power "Power profile" "Could not set $2"
         fi
@@ -28,7 +40,7 @@ case "$1" in
         fi
         ;;
     *)
-        echo "usage: $0 power <profile> | brightness <value>" >&2
+        echo "usage: $0 power <profile|show> | brightness <value>" >&2
         exit 1
         ;;
 esac
