@@ -26,7 +26,7 @@
             "tray#network",
             "pulseaudio",
             "battery",
-            "power-profiles-daemon",
+            "custom/menu",
             "custom/notification"
         ]
     },
@@ -116,17 +116,6 @@
         "max-length": 25
     },
 
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-        "format-icons": {
-            "default": "󰓅",
-            "performance": "󰓅",
-            "balanced": "󰾅",
-            "power-saver": "󰾆"
-        }
-    },
-
     "custom/updates": {
         "format": "{}",
         "return-type": "json",
@@ -135,6 +124,27 @@
         "signal": 8,
         "on-click": "~/.config/waybar/scripts/updates.sh menu",
         "on-click-right": "pkill -RTMIN+8 waybar"
+    },
+
+    // Left click: power profile, brightness and the keybinds cheat sheet (menus/controls.xml).
+    // Each item id in the XML runs the command with the same key here
+    "custom/menu": {
+        "format": "󰍜",
+        "tooltip-format": "Left click to open menu options",
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/menus/controls.xml",
+        "menu-actions": {
+            "power-performance": "~/.config/waybar/scripts/controls-menu.sh power performance",
+            "power-balanced": "~/.config/waybar/scripts/controls-menu.sh power balanced",
+            "power-saver": "~/.config/waybar/scripts/controls-menu.sh power power-saver",
+            "brightness-up": "~/.config/waybar/scripts/controls-menu.sh brightness 10%+",
+            "brightness-down": "~/.config/waybar/scripts/controls-menu.sh brightness 10%-",
+            "brightness-100": "~/.config/waybar/scripts/controls-menu.sh brightness 100%",
+            "brightness-75": "~/.config/waybar/scripts/controls-menu.sh brightness 75%",
+            "brightness-50": "~/.config/waybar/scripts/controls-menu.sh brightness 50%",
+            "brightness-25": "~/.config/waybar/scripts/controls-menu.sh brightness 25%",
+            "keybinds": "~/.config/hypr/scripts/cheatsheet.sh"
+        }
     },
 
     "custom/notification": {

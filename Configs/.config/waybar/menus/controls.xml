@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Menu of custom/menu in waybar (left click). Each item's id is a key of "menu-actions" in
+     config.jsonc, which holds its command. Styled in style.css (menu, menuitem). -->
+<interface>
+    <object class="GtkMenu" id="menu">
+
+        <child>
+            <object class="GtkMenuItem" id="power_menu">
+                <property name="label">󰓅&#x2003;Power profile</property>
+                <child type="submenu">
+                    <object class="GtkMenu">
+                        <child>
+                            <object class="GtkMenuItem" id="power-performance">
+                                <property name="label">󰓅&#x2003;Performance</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="power-balanced">
+                                <property name="label">󰾅&#x2003;Balanced</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="power-saver">
+                                <property name="label">󰾆&#x2003;Power saver</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
+        </child>
+
+        <child>
+            <object class="GtkMenuItem" id="brightness_menu">
+                <property name="label">󰃠&#x2003;Brightness</property>
+                <child type="submenu">
+                    <object class="GtkMenu">
+                        <child>
+                            <object class="GtkMenuItem" id="brightness-up">
+                                <property name="label">󰃠&#x2003;Increase 10%</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="brightness-down">
+                                <property name="label">󰃞&#x2003;Decrease 10%</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkSeparatorMenuItem"/>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="brightness-100">
+                                <property name="label">󰃠&#x2003;100%</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="brightness-75">
+                                <property name="label">󰃟&#x2003;75%</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="brightness-50">
+                                <property name="label">󰃝&#x2003;50%</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="brightness-25">
+                                <property name="label">󰃞&#x2003;25%</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
+        </child>
+
+        <child>
+            <object class="GtkSeparatorMenuItem"/>
+        </child>
+
+        <child>
+            <object class="GtkMenuItem" id="keybinds">
+                <property name="label">󰌌&#x2003;Keybinds (Super + /)</property>
+            </object>
+        </child>
+
+    </object>
+</interface>

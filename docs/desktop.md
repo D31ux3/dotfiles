@@ -100,7 +100,7 @@ Set by **awww** through `scripts/wallpaper.sh`. Wallpapers live in `Assets/Pictu
 - **USB and external drives**: udiskie mounts them automatically and shows a notification. While one is plugged in, a tray icon lets you open or eject it. NTFS and exFAT are supported.
 - **Bluetooth**: blueman, from the tray.
 - **Audio**: PipeWire. `pavucontrol` (click the volume in waybar) to pick outputs and inputs.
-- **Power**: power-profiles-daemon, from waybar.
+- **Power**: power-profiles-daemon, from the waybar menu (󰍜 in the controls pill).
 
 ## Look
 

@@ -40,7 +40,7 @@ window#waybar {
 #memory,
 #pulseaudio,
 #battery,
-#power-profiles-daemon,
+#custom-menu,
 #custom-notification {
     background: transparent;
     color: @text;
@@ -52,8 +52,8 @@ window#waybar {
 #clock:hover,
 #pulseaudio:hover,
 #battery:hover,
-#power-profiles-daemon:hover,
 #custom-updates:hover,
+#custom-menu:hover,
 #custom-notification:hover {
     background: @surface;
 }
@@ -144,15 +144,6 @@ menu separator {
 
 #battery.critical {
     color: @critical;
-}
-
-/* power profiles */
-#power-profiles-daemon.performance {
-    color: @warning;
-}
-
-#power-profiles-daemon.power-saver {
-    color: @good;
 }
 
 /* updates: hidden when there is nothing to update */
