@@ -81,6 +81,12 @@
         </child>
 
         <child>
+            <object class="GtkMenuItem" id="login-screen">
+                <property name="label">󰍹&#x2003;Login screen</property>
+            </object>
+        </child>
+
+        <child>
             <object class="GtkSeparatorMenuItem"/>
         </child>
 
