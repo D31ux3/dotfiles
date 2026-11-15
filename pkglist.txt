@@ -79,6 +79,7 @@ exfatprogs
 grim
 slurp
 satty               # annotate screenshots, default image viewer
+hyprpicker          # color picker (mainMod + Shift + C)
 wl-clipboard
 cliphist            # clipboard history
 

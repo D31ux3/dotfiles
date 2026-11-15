@@ -16,6 +16,7 @@
 | `Super + A` | App launcher (rofi). Press again to close it |
 | `Super + V` | Clipboard history |
 | `Super + W` | Pick a wallpaper (also recolors the desktop) |
+| `Super + Shift + C` | Color picker: click a pixel to copy its hex code (with a zoom lens and a notification) |
 | `Super + /` | Keybinding cheat sheet |
 | `Super + M` | Power menu: lock, suspend, log out, reboot, shut down |
 | `Super + L` | Lock the screen |
