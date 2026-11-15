@@ -25,6 +25,7 @@
         "modules": [
             "tray#network",
             "pulseaudio",
+            "pulseaudio#mic",
             "battery",
             "custom/menu",
             "custom/notification"
@@ -101,6 +102,20 @@
         "on-click": "pavucontrol",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "ignored-sinks": ["Easy Effects Sink"]
+    },
+
+    // Microphone: a second pulseaudio module that only shows the default source (input).
+    // Click: pavucontrol on Input Devices. Right click: mute. Scroll: its volume (capped at 100%)
+    "pulseaudio#mic": {
+        "format": "{format_source}",
+        "format-muted": "{format_source}",
+        "format-source": "󰍬",
+        "format-source-muted": "󰍭",
+        "tooltip-format": "{desc}",
+        "on-click": "pavucontrol -t 4",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 1%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"
     },
 
     "battery": {

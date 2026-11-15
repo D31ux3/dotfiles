@@ -133,6 +133,15 @@ menu separator {
     color: @critical;
 }
 
+/* microphone (pulseaudio#mic): red only when the mic is muted, not the speakers */
+#pulseaudio.mic.muted {
+    color: @text;
+}
+
+#pulseaudio.mic.source-muted {
+    color: @critical;
+}
+
 /* battery */
 #battery {
     color: @good;
