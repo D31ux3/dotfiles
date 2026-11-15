@@ -81,15 +81,20 @@ hl.bind(key("mouse:272"), hl.dsp.window.drag(),   desc("Windows: Drag to move", 
 hl.bind(key("mouse:273"), hl.dsp.window.resize(), desc("Windows: Drag to resize", { mouse = true }))
 hl.bind(key("X"), hl.dsp.window.resize(), desc("Windows: Hold and move the mouse to resize", { mouse = true }))
 
--- Volume and brightness (only one description, for all the media keys)
+-- Volume and brightness (only one description, for all the media keys), with the swayosd bubble.
+-- Brightness goes through brightnessctl -e4 (steps that look even, the same scale as the waybar
+-- menu) and swayosd only shows it: its own brightness control is linear
 local media = { locked = true, repeating = true }
-hl.bind("XF86AudioRaiseVolume",  hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+local brightness_osd = " && p=$(brightnessctl -e4 -m | cut -d, -f4 | tr -d %)"
+    .. " && swayosd-client --custom-icon display-brightness-symbolic"
+    .. " --custom-progress $(awk \"BEGIN{print $p/100}\") --custom-progress-text \"$p%\""
+hl.bind("XF86AudioRaiseVolume",  hl.dsp.exec_cmd("swayosd-client --output-volume +5"),
     desc("Media: Volume, brightness and playback keys work as labeled", { locked = true, repeating = true }))
-hl.bind("XF86AudioLowerVolume",  hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      media)
-hl.bind("XF86AudioMute",         hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     media)
-hl.bind("XF86AudioMicMute",      hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   media)
-hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  media)
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  media)
+hl.bind("XF86AudioLowerVolume",  hl.dsp.exec_cmd("swayosd-client --output-volume -5"),             media)
+hl.bind("XF86AudioMute",         hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"),    media)
+hl.bind("XF86AudioMicMute",      hl.dsp.exec_cmd("swayosd-client --input-volume mute-toggle"),     media)
+hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+" .. brightness_osd), media)
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-" .. brightness_osd), media)
 
 -- Media playback (requires playerctl)
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })

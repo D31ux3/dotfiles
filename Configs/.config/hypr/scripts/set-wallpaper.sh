@@ -1,6 +1,6 @@
 #!/bin/bash
 # Sets the wallpaper and recolors the desktop from it with matugen (~/.config/matugen/config.toml):
-# waybar, swaync, wlogout, rofi, window borders, hyprlock and kitty.
+# waybar, swaync, swayosd, wlogout, rofi, window borders, hyprlock and kitty.
 #   set-wallpaper.sh            pick one from ~/Pictures/Wallpapers (and its subfolders) in rofi (mainMod + W)
 #   set-wallpaper.sh <file>     set that image or video
 #   set-wallpaper.sh --colors   only regenerate the colors from the current wallpaper

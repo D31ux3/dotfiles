@@ -9,6 +9,8 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("gsettings set org.gnome.desktop.interface icon-theme 'breeze-dark'")
     hl.exec_cmd("waybar")
     hl.exec_cmd("swaync")
+    -- On-screen bubble for the volume, mute and brightness keys (keybinds.lua)
+    hl.exec_cmd("swayosd-server")
     hl.exec_cmd("hypridle")
     -- Automount USB drives with a notification; tray icon (eject/open) only while one is plugged in
     hl.exec_cmd("udiskie --smart-tray --appindicator")

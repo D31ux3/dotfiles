@@ -29,6 +29,12 @@ post_hook   = 'swaync-client -rs >/dev/null 2>&1 || true'
 input_path  = '~/.config/matugen/templates/wlogout.css'
 output_path = '~/.config/wlogout/colors.css'
 
+[templates.swayosd]
+input_path  = '~/.config/matugen/templates/swayosd.css'
+output_path = '~/.config/swayosd/colors.css'
+# swayosd reads its CSS when it starts: restart it to apply the new colors
+post_hook   = 'pkill -x swayosd-server; (setsid swayosd-server >/dev/null 2>&1 &) || true'
+
 [templates.rofi]
 input_path  = '~/.config/matugen/templates/rofi.rasi'
 output_path = '~/.config/rofi/colors/matugen.rasi'

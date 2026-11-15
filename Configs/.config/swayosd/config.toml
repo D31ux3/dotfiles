@@ -1,0 +1,12 @@
+# swayosd (started in hypr/conf/autostart.lua): the bubble of the volume, mute and brightness keys.
+# Defaults and every option: /etc/xdg/swayosd/config.toml
+[server]
+# Near the bottom of the screen (0.5 = center), shown for 1 s
+top_margin = 0.85
+duration = 1000
+# Same cap as before swayosd: louder than 100 % distorts
+max_volume = 100
+# The number next to the bar
+show_percentage = true
+
+[client]

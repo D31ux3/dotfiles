@@ -21,7 +21,7 @@ If a config has errors, `hyprctl configerrors` shows the file and line. Hyprland
 
 **SDDM** is the login screen and starts Hyprland by default. Its theme is [SilentSDDM](https://github.com/uiriansan/SilentSDDM) (AUR `sddm-silent-theme`, enabled in `Configs/etc/sddm.conf.d/silent.conf`); change its preset from the waybar menu (󰍜 → *Login screen*) or with `~/.config/hypr/scripts/sddm-preset.sh`: a rofi list of the presets, each one previewed full screen before applying it (asks for the password). The choice is saved in `/etc/sddm-silent-preset` and in `Configs/etc/sddm-silent-preset`, and a pacman hook sets it again after theme updates. The profile picture on the login screen and the lock screen is the image in `Assets/Pictures/pfp/`; after changing it, run `~/dotfiles/Scripts/avatar.sh` (asks for the password: SDDM cannot read the home folder, so the picture is copied to `/usr/share/sddm/faces/`). Logging in unlocks **gnome-keyring**, where VS Code, `gh`, the browser and Discord store their passwords and tokens.
 
-Hyprland also starts: waybar, notifications (swaync), hypridle, USB automount, the wallpaper, the polkit agent (password prompts), clipboard history and monitor detection.
+Hyprland also starts: waybar, notifications (swaync), the volume/brightness bubble (swayosd), hypridle, USB automount, the wallpaper, the polkit agent (password prompts), clipboard history and monitor detection.
 
 ## Waybar (top bar)
 
@@ -87,7 +87,7 @@ The lock screen is **hyprlock** (`Super + L` or from the power menu).
 
 Set by **awww** through `scripts/wallpaper.sh`. Wallpapers live in `Assets/Pictures/Wallpapers/` (linked to `~/Pictures/Wallpapers`). The first time it uses `GirlsFrontline/Leva-simple.png`; after that awww remembers the last one you set.
 
-`Super + W` (or 󰍜 → *Wallpaper* in waybar) opens a grid of the wallpapers, subfolders included (`scripts/set-wallpaper.sh`, or `set-wallpaper.sh <file>`). Videos (`.mp4`, `.webm`, `.mkv`, `.mov`) play with **mpvpaper** on every monitor, looping, muted and paused while windows cover them; one of their frames (cached in `~/.cache/wallpaper/`) is the thumbnail, the source of the colors and the lock screen background. The last wallpaper is remembered, so a video starts again after a reboot. Setting one also **recolors the desktop** with [matugen](https://github.com/InioX/matugen), which builds a Material You palette from the image: waybar, notifications, the power menu, rofi, the window borders, the lock screen and kitty, including its 16 terminal colors: Tokyo Night's red, green, yellow, blue, magenta and cyan blended toward the wallpaper (`custom_colors` in `config.toml`), which the starship prompt also uses. Battery, CPU and other states keep green, yellow and red.
+`Super + W` (or 󰍜 → *Wallpaper* in waybar) opens a grid of the wallpapers, subfolders included (`scripts/set-wallpaper.sh`, or `set-wallpaper.sh <file>`). Videos (`.mp4`, `.webm`, `.mkv`, `.mov`) play with **mpvpaper** on every monitor, looping, muted and paused while windows cover them; one of their frames (cached in `~/.cache/wallpaper/`) is the thumbnail, the source of the colors and the lock screen background. The last wallpaper is remembered, so a video starts again after a reboot. Setting one also **recolors the desktop** with [matugen](https://github.com/InioX/matugen), which builds a Material You palette from the image: waybar, notifications, the volume/brightness bubble, the power menu, rofi, the window borders, the lock screen and kitty, including its 16 terminal colors: Tokyo Night's red, green, yellow, blue, magenta and cyan blended toward the wallpaper (`custom_colors` in `config.toml`), which the starship prompt also uses. Battery, CPU and other states keep green, yellow and red.
 
 - Config and templates: `Configs/.config/matugen/` (`config.toml` lists where each template is written and how each app is reloaded).
 - The written color files are not versioned (`.gitignore`). `install.sh` generates them from the default wallpaper, and `wallpaper.sh` regenerates them at startup if they are missing (`set-wallpaper.sh --colors`).
@@ -113,6 +113,7 @@ Set by **awww** through `scripts/wallpaper.sh`. Wallpapers live in `Assets/Pictu
 - **USB and external drives**: udiskie mounts them automatically and shows a notification. While one is plugged in, a tray icon lets you open or eject it. NTFS and exFAT are supported.
 - **Bluetooth**: blueman, from the tray.
 - **Audio**: PipeWire. `pavucontrol` (click the volume in waybar) to pick outputs and inputs.
+- **Volume and brightness keys**: show a bubble near the bottom of the screen (**swayosd**, `Configs/.config/swayosd/`, wallpaper colors). Volume stops at 100 %. Brightness goes through `brightnessctl -e4`, the same scale as the waybar menu, and swayosd only displays it.
 - **Power**: power-profiles-daemon, from the waybar menu (󰍜 in the controls pill).
 
 ## Look

@@ -36,6 +36,7 @@ qt6-wayland
 libappindicator     # tray icons
 brightnessctl
 playerctl           # media keys
+swayosd             # on-screen bubble for volume, brightness and caps lock
 
 # --- Look: themes and fonts ---
 adw-gtk-theme
