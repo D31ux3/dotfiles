@@ -1,0 +1,45 @@
+// fastfetch: shown when a new kitty window opens (~/.zshrc). Run it again with `ff`, which also
+// picks the logo: a random image from ~/Pictures/fastfetch, or the Arch logo when there is none.
+// Grouped in system / desktop / hardware. Left out on purpose: local IP (it ends up in
+// screenshots), theme/icons/font/cursor (Qt/GTK leftovers, not what Hyprland shows),
+// locale, swap and the host model.
+// Colors are terminal color names, so they follow the matugen kitty theme.
+// Modules missing on a machine (battery on a desktop) are skipped silently.
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "padding": { "top": 1, "left": 1, "right": 3 }
+    },
+    "display": {
+        "separator": "  ",
+        "color": { "keys": "blue", "title": "magenta", "separator": "default" },
+        "key": { "width": 14 },
+        "size": { "binaryPrefix": "iec", "ndigits": 1 }
+    },
+    "modules": [
+        "break",
+        { "type": "title", "format": "{user-name-colored}{at-symbol-colored}{host-name-colored}" },
+
+        { "type": "custom", "format": "{#magenta}─── System ──────────────────────────" },
+        { "type": "os",       "key": "󰣇 OS",      "format": "{name} {arch}" },
+        { "type": "kernel",   "key": " Kernel",  "format": "{release}" },
+        { "type": "uptime",   "key": "󰅐 Uptime" },
+        { "type": "packages", "key": "󰏖 Packages" },
+
+        { "type": "custom", "format": "{#magenta}─── Desktop ─────────────────────────" },
+        { "type": "wm",       "key": " WM",      "format": "{pretty-name} {version}" },
+        { "type": "terminal", "key": " Terminal", "format": "{pretty-name}" },
+        { "type": "shell",    "key": " Shell",   "format": "{pretty-name}" },
+        { "type": "display",  "key": "󰍹 Display", "compactType": "scaled-with-refresh-rate" },
+
+        { "type": "custom", "format": "{#magenta}─── Hardware ────────────────────────" },
+        { "type": "cpu",      "key": " CPU",     "format": "{name} ({cores-logical})" },
+        { "type": "gpu",      "key": "󰢮 GPU",     "format": "{vendor} {name}" },
+        { "type": "memory",   "key": " Memory" },
+        { "type": "disk",     "key": "󰋊 Disk",    "folders": "/", "format": "{size-used} / {size-total} ({size-percentage})" },
+        { "type": "battery",  "key": "󰁹 Battery" },
+
+        "break",
+        { "type": "colors", "symbol": "circle", "paddingLeft": 1 }
+    ]
+}

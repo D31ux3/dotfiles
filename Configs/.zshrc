@@ -109,7 +109,23 @@ alias la="exa -la --icons --git --group-directories-first"
 alias ll="exa -l --icons --git --group-directories-first" 
 alias lt="exa --tree --level=2 --icons"
 
-alias ff="fastfetch"
+# fastfetch with a random image from ~/Pictures/fastfetch (Assets/Pictures/fastfetch) as the logo.
+# Images need kitty; elsewhere, or with no images, it shows the Arch logo.
+# fastfetch only scales the image when it gets both width and height (in text cells), so the
+# width comes from the image's proportions: a cell is about twice as tall as it is wide
+ff() {
+    local logos=(~/Pictures/fastfetch/*.(png|webp)(N))
+    if [[ -z $KITTY_WINDOW_ID ]] || (( ! ${#logos} )); then
+        fastfetch "$@"
+        return
+    fi
+    local logo=${logos[RANDOM % ${#logos} + 1]} height=17 width=34
+    if [[ $(file -b "$logo") =~ '([0-9]+) ?x ?([0-9]+)' ]]; then
+        width=$(( (height * 2 * match[1] + match[2] / 2) / match[2] ))
+    fi
+    fastfetch --logo-type kitty-direct --logo "$logo" \
+        --logo-width "$width" --logo-height "$height" "$@"
+}
 # cat with syntax highlighting, printed straight to the terminal like cat (no pager)
 command -v bat &> /dev/null && alias cat="bat --paging=never"
 
@@ -158,5 +174,5 @@ eval "$(starship init zsh)"
 # not again on `reload`, and not in the waybar updates window (waybar/scripts/updates.sh)
 if [[ -n $KITTY_WINDOW_ID && -z $WAYBAR_UPDATES && -z $_FF_SHOWN ]]; then
     _FF_SHOWN=1
-    fastfetch
+    ff
 fi
