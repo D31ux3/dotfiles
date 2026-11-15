@@ -98,6 +98,7 @@
     "pulseaudio": {
         "format": "{volume}% 󰋋",
         "format-muted": "{volume}% 󰟎",
+        "tooltip-format": "{desc} // Output Devices",
         "scroll-step": 1,
         "on-click": "pavucontrol",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
@@ -111,7 +112,7 @@
         "format-muted": "{format_source}",
         "format-source": "{volume}% 󰍬",
         "format-source-muted": "{volume}% 󰍭",
-        "tooltip-format": "{desc}",
+        "tooltip-format": "{desc} // Input Devices",
         "on-click": "pavucontrol -t 4",
         "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
         "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 1%+",
