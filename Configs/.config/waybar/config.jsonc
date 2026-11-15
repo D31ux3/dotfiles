@@ -23,7 +23,7 @@
     "group/controls": {
         "orientation": "horizontal",
         "modules": [
-            "network",
+            "tray#network",
             "pulseaudio",
             "battery",
             "power-profiles-daemon",
@@ -79,9 +79,18 @@
     },
 
 
+    // Waybar draws tray menus, so they take the colors from style.css (menu, menuitem)
     "tray": {
         "icon-size": 21,
-        "spacing": 8
+        "spacing": 8,
+        "ignore-list": ["nm-applet"]
+    },
+    // nm-applet (Wi-Fi/VPN menu, started in hypr/conf/autostart.lua) shown in the controls pill,
+    // where the network module was. A tray can't list only one app, so this one hides the other
+    // categories (nm-applet is "SystemServices") and the main tray hides nm-applet
+    "tray#network": {
+        "icon-size": 16,
+        "ignore-list": ["ApplicationStatus", "Communications", "Hardware"]
     },
 
 
@@ -92,21 +101,6 @@
         "on-click": "pavucontrol",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "ignored-sinks": ["Easy Effects Sink"]
-    },
-
-    "network": {
-        "format": "{ifname}",
-        "format-wifi": "",
-        "format-ethernet": "",
-        "format-disconnected": "󱛅",
-        "format-disabled": "󰖪",
-        "tooltip-format": "{ifname}",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-        "tooltip-format-ethernet": "{ifname} ",
-        "tooltip-format-disconnected": "Disconnected",
-        "tooltip-format-disabled": "Wi-Fi off",
-        "max-length": 50,
-        "on-click": "~/.config/waybar/scripts/network-menu.sh"
     },
 
     "battery": {

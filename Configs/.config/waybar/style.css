@@ -39,7 +39,6 @@ window#waybar {
 #cpu,
 #memory,
 #pulseaudio,
-#network,
 #battery,
 #power-profiles-daemon,
 #custom-notification {
@@ -52,7 +51,6 @@ window#waybar {
 /* subtle hover */
 #clock:hover,
 #pulseaudio:hover,
-#network:hover,
 #battery:hover,
 #power-profiles-daemon:hover,
 #custom-updates:hover,
@@ -89,18 +87,50 @@ window#waybar {
     margin: 0 6px;
 }
 
+/* tray#network: the nm-applet icon inside the controls pill, sized like its neighbors */
+#controls #tray.network {
+    background: transparent;
+    padding: 4px 7px;
+    margin: 0;
+}
+
+#controls #tray.network:hover {
+    background: @surface;
+}
+
+/* Tray menus (nm-applet, udiskie...): drawn by Waybar, so they follow the wallpaper colors */
+menu {
+    background: @bg;
+    color: @text;
+    border: 1px solid @surface;
+    border-radius: 12px;
+    padding: 6px;
+}
+
+menuitem {
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+menuitem:hover {
+    background: @surface;
+    color: @accent;
+}
+
+/* nm-applet's section titles ("Available networks") are disabled items */
+menuitem:disabled {
+    color: @muted;
+}
+
+menu separator {
+    background: @surface;
+    min-height: 1px;
+    margin: 4px 6px;
+}
+
 /* audio */
 #pulseaudio.muted {
     color: @critical;
-}
-
-/* network */
-#network.disconnected {
-    color: @critical;
-}
-
-#network.disabled {
-    color: @muted;
 }
 
 /* battery */

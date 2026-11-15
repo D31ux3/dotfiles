@@ -47,7 +47,7 @@ swaync, styled after [HyprNova](https://github.com/zDyant/HyprNova). The panel (
 
 ### Network menu
 
-A rofi menu (`waybar/scripts/network-menu.sh`) built on NetworkManager: turn Wi-Fi on or off, list networks with their signal strength and whether they need a password, connect (asks for the password when needed) and open the advanced settings. Clicking again while it is open closes it.
+NetworkManager's official applet (`nm-applet --indicator`, started in `hypr/conf/autostart.lua`). Its icon (Wi-Fi signal) sits in the controls pill, where the network module was: a second tray, `tray#network`, that hides every other category. Clicking it opens its menu: available Wi-Fi networks, VPNs, turning Wi-Fi on or off and *Edit Connections*. Waybar draws the menu, so it is styled in `waybar/style.css` (`menu`, `menuitem`) with the wallpaper colors.
 
 ### Updates
 
