@@ -11,6 +11,8 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("swaync")
     -- On-screen bubble for the volume, mute and brightness keys (keybinds.lua)
     hl.exec_cmd("swayosd-server")
+    -- Night light, off until picked in the waybar menu (controls-menu.sh night)
+    hl.exec_cmd("hyprsunset -i")
     hl.exec_cmd("hypridle")
     -- Automount USB drives with a notification; tray icon (eject/open) only while one is plugged in
     hl.exec_cmd("udiskie --smart-tray --appindicator")

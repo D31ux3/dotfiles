@@ -21,7 +21,7 @@ If a config has errors, `hyprctl configerrors` shows the file and line. Hyprland
 
 **SDDM** is the login screen and starts Hyprland by default. Its theme is [SilentSDDM](https://github.com/uiriansan/SilentSDDM) (AUR `sddm-silent-theme`, enabled in `Configs/etc/sddm.conf.d/silent.conf`); change its preset from the waybar menu (󰍜 → *Login screen*) or with `~/.config/hypr/scripts/sddm-preset.sh`: a rofi list of the presets, each one previewed full screen before applying it (asks for the password). The choice is saved in `/etc/sddm-silent-preset` and in `Configs/etc/sddm-silent-preset`, and a pacman hook sets it again after theme updates. The profile picture on the login screen and the lock screen is the image in `Assets/Pictures/pfp/`; after changing it, run `~/dotfiles/Scripts/avatar.sh` (asks for the password: SDDM cannot read the home folder, so the picture is copied to `/usr/share/sddm/faces/`). Logging in unlocks **gnome-keyring**, where VS Code, `gh`, the browser and Discord store their passwords and tokens.
 
-Hyprland also starts: waybar, notifications (swaync), the volume/brightness bubble (swayosd), hypridle, USB automount, the wallpaper, the polkit agent (password prompts), clipboard history and monitor detection.
+Hyprland also starts: waybar, notifications (swaync), the volume/brightness bubble (swayosd), the night light (hyprsunset, off), hypridle, USB automount, the wallpaper, the polkit agent (password prompts), clipboard history and monitor detection.
 
 ## Waybar (top bar)
 
@@ -56,11 +56,12 @@ The 󰍜 icon opens a Waybar menu (`waybar/menus/controls.xml`; each item's `id`
 
 - **Power profile**: performance, balanced or power saver, and *Show power profile* to see the active one. Waybar builds the menu once, so it can't mark the active profile.
 - **Brightness**: up or down 10 %, or 100/75/50/25 %. Monitors without a backlight (desktop) only show a notification saying so.
+- **Night light**: off, or warmer colors at 4500, 3500 or 2500 K (**hyprsunset**, started with no color change in `autostart.lua`). It is not kept after a reboot.
 - **Login screen**: the SilentSDDM preset picker (see [Login](#login)).
 - **Wallpaper**: the wallpaper picker, like `Super + W`.
 - **Keybinds**: the cheat sheet, like `Super + /`.
 
-Power profile and brightness go through `waybar/scripts/controls-menu.sh`, which confirms each change with a notification.
+Power profile, brightness and night light go through `waybar/scripts/controls-menu.sh`, which confirms each change with a notification.
 
 ### Updates
 

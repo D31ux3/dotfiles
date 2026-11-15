@@ -37,6 +37,7 @@ libappindicator     # tray icons
 brightnessctl
 playerctl           # media keys
 swayosd             # on-screen bubble for volume, brightness and caps lock
+hyprsunset          # night light (waybar menu)
 
 # --- Look: themes and fonts ---
 adw-gtk-theme

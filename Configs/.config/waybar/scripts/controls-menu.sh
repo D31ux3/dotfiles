@@ -2,6 +2,7 @@
 # Actions of the waybar controls menu (custom/menu, menus/controls.xml), with a notification as feedback:
 #   controls-menu.sh power <performance|balanced|power-saver|show>   (show: notify the active one)
 #   controls-menu.sh brightness <brightnessctl value: 10%+, 10%-, 50%...>
+#   controls-menu.sh night <off|temperature in K>   (night light: hyprsunset, started in autostart.lua)
 # The notifications replace each other instead of stacking (swaync "synchronous" hint).
 
 # Active power profile, readable: "Balanced", "Power saver"...
@@ -39,8 +40,20 @@ case "$1" in
             notify brightness "Brightness" "This screen has no adjustable backlight"
         fi
         ;;
+    night)
+        # hyprsunset is controlled through hyprctl; start it (with no color change) if it isn't running
+        if ! pgrep -x hyprsunset >/dev/null; then
+            setsid hyprsunset -i >/dev/null 2>&1 &
+            sleep 0.5
+        fi
+        if [ "$2" = off ]; then
+            hyprctl hyprsunset identity >/dev/null && notify night "Night light" "Off"
+        else
+            hyprctl hyprsunset temperature "$2" >/dev/null && notify night "Night light" "On: $2 K"
+        fi
+        ;;
     *)
-        echo "usage: $0 power <profile|show> | brightness <value>" >&2
+        echo "usage: $0 power <profile|show> | brightness <value> | night <off|K>" >&2
         exit 1
         ;;
 esac

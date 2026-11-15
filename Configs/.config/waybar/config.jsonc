@@ -160,6 +160,10 @@
             "brightness-75": "~/.config/waybar/scripts/controls-menu.sh brightness 75%",
             "brightness-50": "~/.config/waybar/scripts/controls-menu.sh brightness 50%",
             "brightness-25": "~/.config/waybar/scripts/controls-menu.sh brightness 25%",
+            "night-off": "~/.config/waybar/scripts/controls-menu.sh night off",
+            "night-4500": "~/.config/waybar/scripts/controls-menu.sh night 4500",
+            "night-3500": "~/.config/waybar/scripts/controls-menu.sh night 3500",
+            "night-2500": "~/.config/waybar/scripts/controls-menu.sh night 2500",
             "login-screen": "~/.config/hypr/scripts/sddm-preset.sh",
             "wallpaper": "~/.config/hypr/scripts/set-wallpaper.sh",
             "keybinds": "~/.config/hypr/scripts/cheatsheet.sh"
