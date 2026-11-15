@@ -123,6 +123,12 @@
         </child>
 
         <child>
+            <object class="GtkMenuItem" id="wallpaper">
+                <property name="label">󰸉&#x2003;Wallpaper</property>
+            </object>
+        </child>
+
+        <child>
             <object class="GtkSeparatorMenuItem"/>
         </child>
 

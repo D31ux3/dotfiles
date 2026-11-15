@@ -32,10 +32,11 @@ Hyprland also starts: waybar, notifications (swaync), hypridle, USB automount, t
 | Center | Workspaces | Click to go to one, scroll for the next |
 | Right | Tray | Icons of background apps |
 | Right | Updates | Only visible when there are updates (pacman or AUR). Click: summary in a terminal. Right click: check again |
+| Right | Network | Wi-Fi icon of nm-applet. Click: network menu (see below) |
 | Right | Volume | Click: mixer (pavucontrol). Right click: mute. Scroll: volume |
-| Right | Network | Click: network menu (see below) |
+| Right | Microphone | Click: input devices (pavucontrol). Right click: mute. Scroll: mic volume (up to 100 %) |
 | Right | Battery | Changes color below 30 % (warning) and 15 % (critical) |
-| Right | Power profile | Click: cycles power saver, balanced and performance |
+| Right | 󰍜 | Click: controls menu (see below) |
 | Right | Notifications | Click: notification panel. Right click: do not disturb |
 | Right | ⏻ | Power menu |
 
@@ -48,6 +49,18 @@ swaync, styled after [HyprNova](https://github.com/zDyant/HyprNova). The panel (
 ### Network menu
 
 NetworkManager's official applet (`nm-applet --indicator`, started in `hypr/conf/autostart.lua`). Its icon (Wi-Fi signal) sits in the controls pill, where the network module was: a second tray, `tray#network`, that hides every other category. Clicking it opens its menu: available Wi-Fi networks, VPNs, turning Wi-Fi on or off and *Edit Connections*. Waybar draws the menu, so it is styled in `waybar/style.css` (`menu`, `menuitem`) with the wallpaper colors.
+
+### Controls menu
+
+The 󰍜 icon opens a Waybar menu (`waybar/menus/controls.xml`; each item's `id` runs the command with the same key in `menu-actions` of `config.jsonc`):
+
+- **Power profile**: performance, balanced or power saver, and *Show power profile* to see the active one. Waybar builds the menu once, so it can't mark the active profile.
+- **Brightness**: up or down 10 %, or 100/75/50/25 %. Monitors without a backlight (desktop) only show a notification saying so.
+- **Login screen**: the SilentSDDM preset picker (see [Login](#login)).
+- **Wallpaper**: the wallpaper picker, like `Super + W`.
+- **Keybinds**: the cheat sheet, like `Super + /`.
+
+Power profile and brightness go through `waybar/scripts/controls-menu.sh`, which confirms each change with a notification.
 
 ### Updates
 
@@ -74,7 +87,7 @@ The lock screen is **hyprlock** (`Super + L` or from the power menu).
 
 Set by **awww** through `scripts/wallpaper.sh`. Wallpapers live in `Assets/Pictures/Wallpapers/` (linked to `~/Pictures/Wallpapers`). The first time it uses `GirlsFrontline/Leva-simple.png`; after that awww remembers the last one you set.
 
-`Super + W` opens a grid of the wallpapers, subfolders included (`scripts/set-wallpaper.sh`, or `set-wallpaper.sh <file>`). Videos (`.mp4`, `.webm`, `.mkv`, `.mov`) play with **mpvpaper** on every monitor, looping, muted and paused while windows cover them; one of their frames (cached in `~/.cache/wallpaper/`) is the thumbnail, the source of the colors and the lock screen background. The last wallpaper is remembered, so a video starts again after a reboot. Setting one also **recolors the desktop** with [matugen](https://github.com/InioX/matugen), which builds a Material You palette from the image: waybar, notifications, the power menu, rofi, the window borders, the lock screen and kitty, including its 16 terminal colors: Tokyo Night's red, green, yellow, blue, magenta and cyan blended toward the wallpaper (`custom_colors` in `config.toml`), which the starship prompt also uses. Battery, CPU and other states keep green, yellow and red.
+`Super + W` (or 󰍜 → *Wallpaper* in waybar) opens a grid of the wallpapers, subfolders included (`scripts/set-wallpaper.sh`, or `set-wallpaper.sh <file>`). Videos (`.mp4`, `.webm`, `.mkv`, `.mov`) play with **mpvpaper** on every monitor, looping, muted and paused while windows cover them; one of their frames (cached in `~/.cache/wallpaper/`) is the thumbnail, the source of the colors and the lock screen background. The last wallpaper is remembered, so a video starts again after a reboot. Setting one also **recolors the desktop** with [matugen](https://github.com/InioX/matugen), which builds a Material You palette from the image: waybar, notifications, the power menu, rofi, the window borders, the lock screen and kitty, including its 16 terminal colors: Tokyo Night's red, green, yellow, blue, magenta and cyan blended toward the wallpaper (`custom_colors` in `config.toml`), which the starship prompt also uses. Battery, CPU and other states keep green, yellow and red.
 
 - Config and templates: `Configs/.config/matugen/` (`config.toml` lists where each template is written and how each app is reloaded).
 - The written color files are not versioned (`.gitignore`). `install.sh` generates them from the default wallpaper, and `wallpaper.sh` regenerates them at startup if they are missing (`set-wallpaper.sh --colors`).

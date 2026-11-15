@@ -161,6 +161,7 @@
             "brightness-50": "~/.config/waybar/scripts/controls-menu.sh brightness 50%",
             "brightness-25": "~/.config/waybar/scripts/controls-menu.sh brightness 25%",
             "login-screen": "~/.config/hypr/scripts/sddm-preset.sh",
+            "wallpaper": "~/.config/hypr/scripts/set-wallpaper.sh",
             "keybinds": "~/.config/hypr/scripts/cheatsheet.sh"
         }
     },
