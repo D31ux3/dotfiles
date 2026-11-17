@@ -49,7 +49,7 @@ swaync, styled after [HyprNova](https://github.com/zDyant/HyprNova). The panel (
 
 ### Network menu
 
-NetworkManager's official applet (`nm-applet --indicator`, started in `hypr/conf/autostart.lua`). Its icon (Wi-Fi signal) sits in the controls pill, where the network module was: a second tray, `tray#network`, that hides every other category. Clicking it opens its menu: available Wi-Fi networks, VPNs, turning Wi-Fi on or off and *Edit Connections*. Waybar draws the menu, so it is styled in `waybar/style.css` (`menu`, `menuitem`) with the wallpaper colors.
+NetworkManager's official applet (`nm-applet --indicator`, started in `hypr/conf/autostart.lua`). Its icon (Wi-Fi signal) sits in the controls pill, where the network module was: a second tray, `tray#network`, that hides every other category. Clicking it opens its menu: available Wi-Fi networks, VPNs, turning Wi-Fi on or off and *Edit Connections*. Waybar draws the menu, so it is styled in `waybar/style.css` (`menu`, `menuitem`) with the wallpaper colors. With a VPN up the applet switches to `*-secure` icons, which breeze-dark lacks; `Assets/Icons/breeze-dark` (linked to `~/.local/share/icons/breeze-dark`) points them to breeze's own locked network icons.
 
 ### Controls menu
 

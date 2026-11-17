@@ -62,3 +62,11 @@ for src in "$DOTFILES"/Assets/Fonts/*; do
     link "$src" "$HOME/.local/share/fonts/$(basename "$src")"
 done
 command -v fc-cache >/dev/null && fc-cache -f "$HOME/.local/share/fonts" >/dev/null
+
+# Icons added to installed icon themes (Assets/Icons/<theme>, no index.theme: GTK merges them with
+# /usr/share/icons/<theme>). breeze-dark lacks the "-secure" icons nm-applet shows while a VPN is up,
+# so they point to breeze's own locked icons instead of falling back to the applet's old PNGs
+for src in "$DOTFILES"/Assets/Icons/*; do
+    [ -e "$src" ] || continue
+    link "$src" "$HOME/.local/share/icons/$(basename "$src")"
+done
