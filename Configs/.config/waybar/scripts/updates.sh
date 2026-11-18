@@ -108,7 +108,7 @@ fi
 
 read -rn1 -p "Update now? [y/N] " answer; echo
 if [[ $answer == [yYsS] ]]; then
-    yay -Syu
+    yay -Syu --noconfirm
     refresh
     echo
     read -rsn1 -p "Done. Press any key to close"
